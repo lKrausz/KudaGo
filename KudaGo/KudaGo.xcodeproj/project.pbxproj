@@ -1,0 +1,757 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31058DBB26EA68C200181455 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBA26EA68C200181455 /* EventsViewController.swift */; };
+		31058DBD26EA68D000181455 /* BookMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBC26EA68D000181455 /* BookMarksViewController.swift */; };
+		31058DC026EA690000181455 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBF26EA690000181455 /* EventViewController.swift */; };
+		31058DC226EA69B100181455 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC126EA69B100181455 /* SettingsViewController.swift */; };
+		31058DC626EAA04F00181455 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC526EAA04F00181455 /* TapBarController.swift */; };
+		31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC926EAB82B00181455 /* EventTableViewCell.swift */; };
+		31058DCC26EBC81500181455 /* UserSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DCB26EBC81500181455 /* UserSettingsModel.swift */; };
+		31A4CB1826824539006A9A13 /* OnbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1726824539006A9A13 /* OnbViewController.swift */; };
+		31A4CB1A268249FB006A9A13 /* OnbPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB19268249FB006A9A13 /* OnbPresentor.swift */; };
+		31A4CB1C2682502E006A9A13 /* OnbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */; };
+		31B5554D268243E10052980F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5554C268243E10052980F /* DataManager.swift */; };
+		31CA03EB26B0725200DB032D /* KudaGoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03EA26B0725200DB032D /* KudaGoModel.swift */; };
+		31CA03ED26B0731000DB032D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03EC26B0731000DB032D /* NetworkManager.swift */; };
+		31CA03EF26B0735F00DB032D /* KudaGoEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03EE26B0735F00DB032D /* KudaGoEndPoint.swift */; };
+		31CA03F126B073B200DB032D /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F026B073B200DB032D /* ParameterEncoding.swift */; };
+		31CA03F326B0740000DB032D /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F226B0740000DB032D /* JSONParameterEncoder.swift */; };
+		31CA03F526B0741800DB032D /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F426B0741800DB032D /* NetworkRouter.swift */; };
+		31CA03F726B0744500DB032D /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F626B0744500DB032D /* EndPointType.swift */; };
+		31CA03F926B0747000DB032D /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F826B0747000DB032D /* HTTPTask.swift */; };
+		31CA03FB26B0748500DB032D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03FA26B0748500DB032D /* HTTPMethod.swift */; };
+		31CA03FD26B074A300DB032D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03FC26B074A300DB032D /* Router.swift */; };
+		31CA03FF26B074B800DB032D /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03FE26B074B800DB032D /* URLParameterEncoder.swift */; };
+		31DBF0CC2680DA3F006BC9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */; };
+		31DBF0CE2680DA3F006BC9E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */; };
+		31DBF0D02680DA3F006BC9E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0CF2680DA3F006BC9E0 /* ViewController.swift */; };
+		31DBF0D62680DA3F006BC9E0 /* KudaGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0D42680DA3F006BC9E0 /* KudaGo.xcdatamodeld */; };
+		31DBF0D82680DA40006BC9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DBF0D72680DA40006BC9E0 /* Assets.xcassets */; };
+		31DBF0DB2680DA40006BC9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */; };
+		31DBF0E62680DA40006BC9E0 /* KudaGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0E52680DA40006BC9E0 /* KudaGoTests.swift */; };
+		31DBF0F12680DA40006BC9E0 /* KudaGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0F02680DA40006BC9E0 /* KudaGoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31DBF0E22680DA40006BC9E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31DBF0C02680DA3F006BC9E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31DBF0C72680DA3F006BC9E0;
+			remoteInfo = KudaGo;
+		};
+		31DBF0ED2680DA40006BC9E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31DBF0C02680DA3F006BC9E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31DBF0C72680DA3F006BC9E0;
+			remoteInfo = KudaGo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		31058DBA26EA68C200181455 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		31058DBC26EA68D000181455 /* BookMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksViewController.swift; sourceTree = "<group>"; };
+		31058DBF26EA690000181455 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		31058DC126EA69B100181455 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		31058DC526EAA04F00181455 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
+		31058DC926EAB82B00181455 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		31058DCB26EBC81500181455 /* UserSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsModel.swift; sourceTree = "<group>"; };
+		31A4CB1726824539006A9A13 /* OnbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbViewController.swift; sourceTree = "<group>"; };
+		31A4CB19268249FB006A9A13 /* OnbPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbPresentor.swift; sourceTree = "<group>"; };
+		31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbTableViewCell.swift; sourceTree = "<group>"; };
+		31B5554C268243E10052980F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		31CA03EA26B0725200DB032D /* KudaGoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KudaGoModel.swift; sourceTree = "<group>"; };
+		31CA03EC26B0731000DB032D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		31CA03EE26B0735F00DB032D /* KudaGoEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KudaGoEndPoint.swift; sourceTree = "<group>"; };
+		31CA03F026B073B200DB032D /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		31CA03F226B0740000DB032D /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		31CA03F426B0741800DB032D /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		31CA03F626B0744500DB032D /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		31CA03F826B0747000DB032D /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		31CA03FA26B0748500DB032D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		31CA03FC26B074A300DB032D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		31CA03FE26B074B800DB032D /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		31DBF0C82680DA3F006BC9E0 /* KudaGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KudaGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		31DBF0CF2680DA3F006BC9E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		31DBF0D52680DA3F006BC9E0 /* KudaGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KudaGo.xcdatamodel; sourceTree = "<group>"; };
+		31DBF0D72680DA40006BC9E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31DBF0DA2680DA40006BC9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		31DBF0DC2680DA40006BC9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31DBF0E12680DA40006BC9E0 /* KudaGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KudaGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31DBF0E52680DA40006BC9E0 /* KudaGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KudaGoTests.swift; sourceTree = "<group>"; };
+		31DBF0E72680DA40006BC9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31DBF0EC2680DA40006BC9E0 /* KudaGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KudaGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31DBF0F02680DA40006BC9E0 /* KudaGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KudaGoUITests.swift; sourceTree = "<group>"; };
+		31DBF0F22680DA40006BC9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31DBF0C52680DA3F006BC9E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31DBF0DE2680DA40006BC9E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31DBF0E92680DA40006BC9E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31058DC826EAB30C00181455 /* Main screen */ = {
+			isa = PBXGroup;
+			children = (
+				31058DC526EAA04F00181455 /* TapBarController.swift */,
+				31058DBA26EA68C200181455 /* EventsViewController.swift */,
+				31058DBC26EA68D000181455 /* BookMarksViewController.swift */,
+				31058DC126EA69B100181455 /* SettingsViewController.swift */,
+			);
+			path = "Main screen";
+			sourceTree = "<group>";
+		};
+		31A4CB1426824510006A9A13 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				31A4CB19268249FB006A9A13 /* OnbPresentor.swift */,
+				31A4CB1726824539006A9A13 /* OnbViewController.swift */,
+				31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		31CA03E326B0718100DB032D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				31CA03E426B071A000DB032D /* Model */,
+				31CA03E526B071A700DB032D /* Manager */,
+				31CA03E626B071B900DB032D /* EndPoint */,
+				31CA03E826B071E300DB032D /* Encoding */,
+				31CA03E926B071EC00DB032D /* Service */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		31CA03E426B071A000DB032D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31CA03EA26B0725200DB032D /* KudaGoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		31CA03E526B071A700DB032D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				31CA03EC26B0731000DB032D /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		31CA03E626B071B900DB032D /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				31CA03EE26B0735F00DB032D /* KudaGoEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		31CA03E826B071E300DB032D /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				31CA03F026B073B200DB032D /* ParameterEncoding.swift */,
+				31CA03F226B0740000DB032D /* JSONParameterEncoder.swift */,
+				31CA03F426B0741800DB032D /* NetworkRouter.swift */,
+				31CA03FE26B074B800DB032D /* URLParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		31CA03E926B071EC00DB032D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				31CA03F626B0744500DB032D /* EndPointType.swift */,
+				31CA03F826B0747000DB032D /* HTTPTask.swift */,
+				31CA03FA26B0748500DB032D /* HTTPMethod.swift */,
+				31CA03FC26B074A300DB032D /* Router.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		31DBF0BF2680DA3F006BC9E0 = {
+			isa = PBXGroup;
+			children = (
+				31DBF0CA2680DA3F006BC9E0 /* KudaGo */,
+				31DBF0E42680DA40006BC9E0 /* KudaGoTests */,
+				31DBF0EF2680DA40006BC9E0 /* KudaGoUITests */,
+				31DBF0C92680DA3F006BC9E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		31DBF0C92680DA3F006BC9E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31DBF0C82680DA3F006BC9E0 /* KudaGo.app */,
+				31DBF0E12680DA40006BC9E0 /* KudaGoTests.xctest */,
+				31DBF0EC2680DA40006BC9E0 /* KudaGoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31DBF0CA2680DA3F006BC9E0 /* KudaGo */ = {
+			isa = PBXGroup;
+			children = (
+				31CA03E326B0718100DB032D /* Network */,
+				31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */,
+				31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */,
+				31DBF0CF2680DA3F006BC9E0 /* ViewController.swift */,
+				31058DBF26EA690000181455 /* EventViewController.swift */,
+				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
+				31058DC826EAB30C00181455 /* Main screen */,
+				31DBF0D72680DA40006BC9E0 /* Assets.xcassets */,
+				31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */,
+				31DBF0DC2680DA40006BC9E0 /* Info.plist */,
+				31DBF0D42680DA3F006BC9E0 /* KudaGo.xcdatamodeld */,
+				31B5554C268243E10052980F /* DataManager.swift */,
+				31058DCB26EBC81500181455 /* UserSettingsModel.swift */,
+				31A4CB1426824510006A9A13 /* Onboarding */,
+			);
+			path = KudaGo;
+			sourceTree = "<group>";
+		};
+		31DBF0E42680DA40006BC9E0 /* KudaGoTests */ = {
+			isa = PBXGroup;
+			children = (
+				31DBF0E52680DA40006BC9E0 /* KudaGoTests.swift */,
+				31DBF0E72680DA40006BC9E0 /* Info.plist */,
+			);
+			path = KudaGoTests;
+			sourceTree = "<group>";
+		};
+		31DBF0EF2680DA40006BC9E0 /* KudaGoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				31DBF0F02680DA40006BC9E0 /* KudaGoUITests.swift */,
+				31DBF0F22680DA40006BC9E0 /* Info.plist */,
+			);
+			path = KudaGoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		31DBF0C72680DA3F006BC9E0 /* KudaGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31DBF0F52680DA40006BC9E0 /* Build configuration list for PBXNativeTarget "KudaGo" */;
+			buildPhases = (
+				31DBF0C42680DA3F006BC9E0 /* Sources */,
+				31DBF0C52680DA3F006BC9E0 /* Frameworks */,
+				31DBF0C62680DA3F006BC9E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KudaGo;
+			productName = KudaGo;
+			productReference = 31DBF0C82680DA3F006BC9E0 /* KudaGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		31DBF0E02680DA40006BC9E0 /* KudaGoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31DBF0F82680DA40006BC9E0 /* Build configuration list for PBXNativeTarget "KudaGoTests" */;
+			buildPhases = (
+				31DBF0DD2680DA40006BC9E0 /* Sources */,
+				31DBF0DE2680DA40006BC9E0 /* Frameworks */,
+				31DBF0DF2680DA40006BC9E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31DBF0E32680DA40006BC9E0 /* PBXTargetDependency */,
+			);
+			name = KudaGoTests;
+			productName = KudaGoTests;
+			productReference = 31DBF0E12680DA40006BC9E0 /* KudaGoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		31DBF0EB2680DA40006BC9E0 /* KudaGoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31DBF0FB2680DA40006BC9E0 /* Build configuration list for PBXNativeTarget "KudaGoUITests" */;
+			buildPhases = (
+				31DBF0E82680DA40006BC9E0 /* Sources */,
+				31DBF0E92680DA40006BC9E0 /* Frameworks */,
+				31DBF0EA2680DA40006BC9E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31DBF0EE2680DA40006BC9E0 /* PBXTargetDependency */,
+			);
+			name = KudaGoUITests;
+			productName = KudaGoUITests;
+			productReference = 31DBF0EC2680DA40006BC9E0 /* KudaGoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		31DBF0C02680DA3F006BC9E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					31DBF0C72680DA3F006BC9E0 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					31DBF0E02680DA40006BC9E0 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 31DBF0C72680DA3F006BC9E0;
+					};
+					31DBF0EB2680DA40006BC9E0 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 31DBF0C72680DA3F006BC9E0;
+					};
+				};
+			};
+			buildConfigurationList = 31DBF0C32680DA3F006BC9E0 /* Build configuration list for PBXProject "KudaGo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 31DBF0BF2680DA3F006BC9E0;
+			productRefGroup = 31DBF0C92680DA3F006BC9E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				31DBF0C72680DA3F006BC9E0 /* KudaGo */,
+				31DBF0E02680DA40006BC9E0 /* KudaGoTests */,
+				31DBF0EB2680DA40006BC9E0 /* KudaGoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31DBF0C62680DA3F006BC9E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31DBF0DB2680DA40006BC9E0 /* LaunchScreen.storyboard in Resources */,
+				31DBF0D82680DA40006BC9E0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31DBF0DF2680DA40006BC9E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31DBF0EA2680DA40006BC9E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31DBF0C42680DA3F006BC9E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31CA03F926B0747000DB032D /* HTTPTask.swift in Sources */,
+				31058DC026EA690000181455 /* EventViewController.swift in Sources */,
+				31CA03F726B0744500DB032D /* EndPointType.swift in Sources */,
+				31058DCC26EBC81500181455 /* UserSettingsModel.swift in Sources */,
+				31058DBD26EA68D000181455 /* BookMarksViewController.swift in Sources */,
+				31DBF0D02680DA3F006BC9E0 /* ViewController.swift in Sources */,
+				31B5554D268243E10052980F /* DataManager.swift in Sources */,
+				31CA03F526B0741800DB032D /* NetworkRouter.swift in Sources */,
+				31058DC626EAA04F00181455 /* TapBarController.swift in Sources */,
+				31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */,
+				31DBF0CC2680DA3F006BC9E0 /* AppDelegate.swift in Sources */,
+				31CA03FD26B074A300DB032D /* Router.swift in Sources */,
+				31CA03FF26B074B800DB032D /* URLParameterEncoder.swift in Sources */,
+				31CA03ED26B0731000DB032D /* NetworkManager.swift in Sources */,
+				31058DBB26EA68C200181455 /* EventsViewController.swift in Sources */,
+				31DBF0D62680DA3F006BC9E0 /* KudaGo.xcdatamodeld in Sources */,
+				31A4CB1C2682502E006A9A13 /* OnbTableViewCell.swift in Sources */,
+				31CA03F126B073B200DB032D /* ParameterEncoding.swift in Sources */,
+				31058DC226EA69B100181455 /* SettingsViewController.swift in Sources */,
+				31CA03EB26B0725200DB032D /* KudaGoModel.swift in Sources */,
+				31DBF0CE2680DA3F006BC9E0 /* SceneDelegate.swift in Sources */,
+				31A4CB1A268249FB006A9A13 /* OnbPresentor.swift in Sources */,
+				31CA03FB26B0748500DB032D /* HTTPMethod.swift in Sources */,
+				31A4CB1826824539006A9A13 /* OnbViewController.swift in Sources */,
+				31CA03F326B0740000DB032D /* JSONParameterEncoder.swift in Sources */,
+				31CA03EF26B0735F00DB032D /* KudaGoEndPoint.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31DBF0DD2680DA40006BC9E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31DBF0E62680DA40006BC9E0 /* KudaGoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31DBF0E82680DA40006BC9E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31DBF0F12680DA40006BC9E0 /* KudaGoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31DBF0E32680DA40006BC9E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31DBF0C72680DA3F006BC9E0 /* KudaGo */;
+			targetProxy = 31DBF0E22680DA40006BC9E0 /* PBXContainerItemProxy */;
+		};
+		31DBF0EE2680DA40006BC9E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31DBF0C72680DA3F006BC9E0 /* KudaGo */;
+			targetProxy = 31DBF0ED2680DA40006BC9E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31DBF0DA2680DA40006BC9E0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		31DBF0F32680DA40006BC9E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		31DBF0F42680DA40006BC9E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		31DBF0F62680DA40006BC9E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4L4C334L8;
+				INFOPLIST_FILE = KudaGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krausz.KudaGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		31DBF0F72680DA40006BC9E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4L4C334L8;
+				INFOPLIST_FILE = KudaGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krausz.KudaGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		31DBF0F92680DA40006BC9E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4L4C334L8;
+				INFOPLIST_FILE = KudaGoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krausz.KudaGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KudaGo.app/KudaGo";
+			};
+			name = Debug;
+		};
+		31DBF0FA2680DA40006BC9E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4L4C334L8;
+				INFOPLIST_FILE = KudaGoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krausz.KudaGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KudaGo.app/KudaGo";
+			};
+			name = Release;
+		};
+		31DBF0FC2680DA40006BC9E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4L4C334L8;
+				INFOPLIST_FILE = KudaGoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krausz.KudaGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KudaGo;
+			};
+			name = Debug;
+		};
+		31DBF0FD2680DA40006BC9E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4L4C334L8;
+				INFOPLIST_FILE = KudaGoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = krausz.KudaGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KudaGo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31DBF0C32680DA3F006BC9E0 /* Build configuration list for PBXProject "KudaGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31DBF0F32680DA40006BC9E0 /* Debug */,
+				31DBF0F42680DA40006BC9E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31DBF0F52680DA40006BC9E0 /* Build configuration list for PBXNativeTarget "KudaGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31DBF0F62680DA40006BC9E0 /* Debug */,
+				31DBF0F72680DA40006BC9E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31DBF0F82680DA40006BC9E0 /* Build configuration list for PBXNativeTarget "KudaGoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31DBF0F92680DA40006BC9E0 /* Debug */,
+				31DBF0FA2680DA40006BC9E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31DBF0FB2680DA40006BC9E0 /* Build configuration list for PBXNativeTarget "KudaGoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31DBF0FC2680DA40006BC9E0 /* Debug */,
+				31DBF0FD2680DA40006BC9E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		31DBF0D42680DA3F006BC9E0 /* KudaGo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				31DBF0D52680DA3F006BC9E0 /* KudaGo.xcdatamodel */,
+			);
+			currentVersion = 31DBF0D52680DA3F006BC9E0 /* KudaGo.xcdatamodel */;
+			path = KudaGo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 31DBF0C02680DA3F006BC9E0 /* Project object */;
+}
