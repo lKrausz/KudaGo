@@ -8,10 +8,7 @@
 import Foundation
 
 class UserSettingsModel {
-//    let currentLocation: String = 
-//    let currentInterests: [String]
-//    
-//    init() {
-//        <#statements#>
-//    }
+    let currentLocation: String = DataManager.shared.getLocation()
+    let currentInterests: [String] = DataManager.shared.getInterests()
+    
 }

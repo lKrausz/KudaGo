@@ -9,36 +9,61 @@ import UIKit
 
 class OnbViewController: UIViewController {
     
-    var tableView = UITableView.init(frame: .zero, style: .plain)
-    var titleLabel = UILabel.init(frame: .zero)
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(OnbTableViewCell.self, forCellReuseIdentifier: "OnbTableViewCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        return tableView
+    }()
+    
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 24)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    lazy var button: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 15
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.clipsToBounds = true
+        button.backgroundColor = .white
+        button.setTitleColor(.black, for: .normal)
+        button.setTitle("Готово", for: .normal)
+        button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+
     var data = [OnboardingApiResponse].init()
     var currentType: OnboardingType = OnboardingPresentor.shared.currentOnboardScreen
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        backgroundImage.image = UIImage.init(named: "onbBG")
+        backgroundImage.clipsToBounds = false
+        backgroundImage.alpha = 0.9
+        view.addSubview(backgroundImage)
         view.addSubview(titleLabel)
         view.addSubview(tableView)
-        titleLabel.textColor = UIColor.label
-        titleLabel.numberOfLines = 0
-        titleLabel.textAlignment = .center
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        UINavigationBar.appearance().prefersLargeTitles = true
 
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            titleLabel.heightAnchor.constraint(equalToConstant: 60)])
+        setConstraints()
         
-        loadViewIfNeeded()
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        
         
         switch self.currentType {
         
@@ -75,26 +100,35 @@ class OnbViewController: UIViewController {
             })
             addReadyButton()
         }
+    }
+    
+    func setConstraints() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            titleLabel.heightAnchor.constraint(equalToConstant: 60)])
         
-        tableView.register(OnbTableViewCell.self, forCellReuseIdentifier: "OnbTableViewCell")
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
     }
     
     func addReadyButton() {
-        //TODO: normal button position and constraints
-        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-        button.backgroundColor = .green
-        button.layer.cornerRadius = 20
-        button.layer.borderWidth = 3.0
-        button.layer.borderColor = UIColor.black.cgColor
-        button.clipsToBounds = true
-        button.setTitle("Ready!", for: .normal)
-        button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
         self.view.addSubview(button)
+
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            button.heightAnchor.constraint(equalToConstant: 60),
+            button.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
+            tableView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -5)
+        ])
+        
     }
     
     @objc func buttonAction(sender: UIButton!) {
@@ -118,13 +152,16 @@ extension OnbViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if currentType == .location {
         OnboardingPresentor.shared.currentOnboardScreen = .event
-            let captureViewCon = OnbViewController()
+        let captureViewCon = OnbViewController()
         self.navigationController?.pushViewController(captureViewCon, animated: true)
         //TODO: save location
         }
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    }
+    
     
 }

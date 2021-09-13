@@ -10,6 +10,8 @@ import Foundation
 public enum KudaGoAPI {
     case locations
     case eventCategories
+    case eventList(page: Int, page_size: Int)
+    case event(id: Int)
 }
 
 extension KudaGoAPI: EndPointType {
@@ -25,6 +27,10 @@ extension KudaGoAPI: EndPointType {
             return  "/locations"
         case .eventCategories:
             return  "/event-categories"
+        case .eventList:
+            return "/events/"
+        case .event(let id):
+            return "/events/\(id)/"
         }
     }
     
@@ -36,6 +42,12 @@ extension KudaGoAPI: EndPointType {
         case .eventCategories:
             return .requestParams(bodyParams: nil,
                                   urlParams: ["lang":"ru"])
+        case .eventList(let page, let page_size):
+            return .requestParams(bodyParams: nil,
+                                  urlParams: ["lang":"ru", "page": page, "page_size": page_size, "fields": "id,dates,price,title", "location":DataManager.shared.getLocation()])
+        case .event:
+            return .requestParams(bodyParams: nil,
+                                  urlParams: ["lang":"ru", "fields": "dates,title,body_text,age_restriction,price,images,site_url", "text_format": "plain"])
         }
     }
     

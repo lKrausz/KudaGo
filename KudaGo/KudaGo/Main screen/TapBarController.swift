@@ -12,9 +12,9 @@ class TapBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let events = generateNavController(vc: EventsViewController(), title: "Events", image: UIImage(named: "event"))
-        let bookmarks = generateNavController(vc: BookMarksViewController(), title: "Bookmarks", image: UIImage(named: "bookmark"))
-        let settings = generateNavController(vc: SettingsViewController(), title: "Settings", image: UIImage(named: "settings"))
+        let events = generateNavController(vc: EventsViewController(), title: "События", image: UIImage(named: "event"))
+        let bookmarks = generateNavController(vc: BookMarksViewController(), title: "Избранное", image: UIImage(named: "bookmark"))
+        let settings = generateNavController(vc: SettingsViewController(), title: "Настройки", image: UIImage(named: "settings"))
         
         UINavigationBar.appearance().prefersLargeTitles = true
         viewControllers = [events, bookmarks, settings]

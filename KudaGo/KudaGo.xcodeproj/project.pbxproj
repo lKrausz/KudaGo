@@ -124,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				31058DC526EAA04F00181455 /* TapBarController.swift */,
+				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
 				31058DBA26EA68C200181455 /* EventsViewController.swift */,
 				31058DBC26EA68D000181455 /* BookMarksViewController.swift */,
 				31058DC126EA69B100181455 /* SettingsViewController.swift */,
@@ -227,7 +228,6 @@
 				31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */,
 				31DBF0CF2680DA3F006BC9E0 /* ViewController.swift */,
 				31058DBF26EA690000181455 /* EventViewController.swift */,
-				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
 				31058DC826EAB30C00181455 /* Main screen */,
 				31DBF0D72680DA40006BC9E0 /* Assets.xcassets */,
 				31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */,

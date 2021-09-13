@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
-        if DataManager.shared.isNewUser() {
+        //TODO: remove ! when end project
+        if !DataManager.shared.isNewUser() {
             let viewController = OnbViewController()
             let navController = UINavigationController.init(rootViewController: viewController)
             window?.rootViewController = navController
