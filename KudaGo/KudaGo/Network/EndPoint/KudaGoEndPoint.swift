@@ -44,10 +44,10 @@ extension KudaGoAPI: EndPointType {
                                   urlParams: ["lang":"ru"])
         case .eventList(let page, let page_size):
             return .requestParams(bodyParams: nil,
-                                  urlParams: ["lang":"ru", "page": page, "page_size": page_size, "fields": "id,dates,price,title", "location":DataManager.shared.getLocation()])
+                                  urlParams: ["lang":"ru", "page": page, "page_size": page_size, "fields": "id,dates,price,title,images,place","expand":"place,dates","actual_since": Int(Date().timeIntervalSince1970),"order_by": "publication_date", "location": "spb"])//DataManager.shared.getLocation()])
         case .event:
             return .requestParams(bodyParams: nil,
-                                  urlParams: ["lang":"ru", "fields": "dates,title,body_text,age_restriction,price,images,site_url", "text_format": "plain"])
+                                  urlParams: ["lang":"ru", "fields": "dates,title,body_text,age_restriction,price,images,site_url,place","expand":"place,dates", "text_format": "plain"])
         }
     }
     

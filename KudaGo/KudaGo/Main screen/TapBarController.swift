@@ -16,7 +16,6 @@ class TapBarController: UITabBarController {
         let bookmarks = generateNavController(vc: BookMarksViewController(), title: "Избранное", image: UIImage(named: "bookmark"))
         let settings = generateNavController(vc: SettingsViewController(), title: "Настройки", image: UIImage(named: "settings"))
         
-        UINavigationBar.appearance().prefersLargeTitles = true
         viewControllers = [events, bookmarks, settings]
 
     }
@@ -26,6 +25,7 @@ class TapBarController: UITabBarController {
         let navController = UINavigationController(rootViewController: vc)
         navController.title = title
         navController.tabBarItem.image = image
+        navController.navigationBar.prefersLargeTitles = true
         return navController
     }
     

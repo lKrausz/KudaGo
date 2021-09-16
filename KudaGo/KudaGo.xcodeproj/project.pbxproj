@@ -13,7 +13,12 @@
 		31058DC226EA69B100181455 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC126EA69B100181455 /* SettingsViewController.swift */; };
 		31058DC626EAA04F00181455 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC526EAA04F00181455 /* TapBarController.swift */; };
 		31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC926EAB82B00181455 /* EventTableViewCell.swift */; };
-		31058DCC26EBC81500181455 /* UserSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DCB26EBC81500181455 /* UserSettingsModel.swift */; };
+		313415DF26F06F6800027D48 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */; };
+		313415E126F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */; };
+		316FD4EC26F1E4AB00863E53 /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4EB26F1E4AB00863E53 /* GalleryTableViewCell.swift */; };
+		316FD4EE26F1E4C600863E53 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */; };
+		316FD4F226F2454300863E53 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4F126F2454300863E53 /* SettingsTableViewCell.swift */; };
+		316FD4F526F3035800863E53 /* EventPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4F426F3035800863E53 /* EventPlaceholderView.swift */; };
 		31A4CB1826824539006A9A13 /* OnbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1726824539006A9A13 /* OnbViewController.swift */; };
 		31A4CB1A268249FB006A9A13 /* OnbPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB19268249FB006A9A13 /* OnbPresentor.swift */; };
 		31A4CB1C2682502E006A9A13 /* OnbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */; };
@@ -31,7 +36,6 @@
 		31CA03FF26B074B800DB032D /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03FE26B074B800DB032D /* URLParameterEncoder.swift */; };
 		31DBF0CC2680DA3F006BC9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */; };
 		31DBF0CE2680DA3F006BC9E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */; };
-		31DBF0D02680DA3F006BC9E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0CF2680DA3F006BC9E0 /* ViewController.swift */; };
 		31DBF0D62680DA3F006BC9E0 /* KudaGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0D42680DA3F006BC9E0 /* KudaGo.xcdatamodeld */; };
 		31DBF0D82680DA40006BC9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DBF0D72680DA40006BC9E0 /* Assets.xcassets */; };
 		31DBF0DB2680DA40006BC9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */; };
@@ -63,7 +67,12 @@
 		31058DC126EA69B100181455 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		31058DC526EAA04F00181455 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
 		31058DC926EAB82B00181455 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		31058DCB26EBC81500181455 /* UserSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsModel.swift; sourceTree = "<group>"; };
+		313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		316FD4EB26F1E4AB00863E53 /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
+		316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		316FD4F126F2454300863E53 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		316FD4F426F3035800863E53 /* EventPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPlaceholderView.swift; sourceTree = "<group>"; };
 		31A4CB1726824539006A9A13 /* OnbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbViewController.swift; sourceTree = "<group>"; };
 		31A4CB19268249FB006A9A13 /* OnbPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbPresentor.swift; sourceTree = "<group>"; };
 		31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbTableViewCell.swift; sourceTree = "<group>"; };
@@ -82,7 +91,6 @@
 		31DBF0C82680DA3F006BC9E0 /* KudaGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KudaGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31DBF0CF2680DA3F006BC9E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		31DBF0D52680DA3F006BC9E0 /* KudaGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KudaGo.xcdatamodel; sourceTree = "<group>"; };
 		31DBF0D72680DA40006BC9E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31DBF0DA2680DA40006BC9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -125,11 +133,50 @@
 			children = (
 				31058DC526EAA04F00181455 /* TapBarController.swift */,
 				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
-				31058DBA26EA68C200181455 /* EventsViewController.swift */,
-				31058DBC26EA68D000181455 /* BookMarksViewController.swift */,
-				31058DC126EA69B100181455 /* SettingsViewController.swift */,
+				316FD4EF26F1E4C900863E53 /* EventView */,
+				316FD4F626F308E500863E53 /* EventsView */,
+				316FD4F326F3033100863E53 /* BookmarkView */,
+				316FD4F026F2452500863E53 /* SettingsView */,
 			);
 			path = "Main screen";
+			sourceTree = "<group>";
+		};
+		316FD4EF26F1E4C900863E53 /* EventView */ = {
+			isa = PBXGroup;
+			children = (
+				31058DBF26EA690000181455 /* EventViewController.swift */,
+				316FD4EB26F1E4AB00863E53 /* GalleryTableViewCell.swift */,
+				313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */,
+				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
+				313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */,
+			);
+			path = EventView;
+			sourceTree = "<group>";
+		};
+		316FD4F026F2452500863E53 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				31058DC126EA69B100181455 /* SettingsViewController.swift */,
+				316FD4F126F2454300863E53 /* SettingsTableViewCell.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		316FD4F326F3033100863E53 /* BookmarkView */ = {
+			isa = PBXGroup;
+			children = (
+				31058DBC26EA68D000181455 /* BookMarksViewController.swift */,
+				316FD4F426F3035800863E53 /* EventPlaceholderView.swift */,
+			);
+			path = BookmarkView;
+			sourceTree = "<group>";
+		};
+		316FD4F626F308E500863E53 /* EventsView */ = {
+			isa = PBXGroup;
+			children = (
+				31058DBA26EA68C200181455 /* EventsViewController.swift */,
+			);
+			path = EventsView;
 			sourceTree = "<group>";
 		};
 		31A4CB1426824510006A9A13 /* Onboarding */ = {
@@ -226,16 +273,13 @@
 				31CA03E326B0718100DB032D /* Network */,
 				31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */,
 				31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */,
-				31DBF0CF2680DA3F006BC9E0 /* ViewController.swift */,
-				31058DBF26EA690000181455 /* EventViewController.swift */,
+				31A4CB1426824510006A9A13 /* Onboarding */,
 				31058DC826EAB30C00181455 /* Main screen */,
 				31DBF0D72680DA40006BC9E0 /* Assets.xcassets */,
 				31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */,
 				31DBF0DC2680DA40006BC9E0 /* Info.plist */,
 				31DBF0D42680DA3F006BC9E0 /* KudaGo.xcdatamodeld */,
 				31B5554C268243E10052980F /* DataManager.swift */,
-				31058DCB26EBC81500181455 /* UserSettingsModel.swift */,
-				31A4CB1426824510006A9A13 /* Onboarding */,
 			);
 			path = KudaGo;
 			sourceTree = "<group>";
@@ -390,27 +434,31 @@
 				31CA03F926B0747000DB032D /* HTTPTask.swift in Sources */,
 				31058DC026EA690000181455 /* EventViewController.swift in Sources */,
 				31CA03F726B0744500DB032D /* EndPointType.swift in Sources */,
-				31058DCC26EBC81500181455 /* UserSettingsModel.swift in Sources */,
 				31058DBD26EA68D000181455 /* BookMarksViewController.swift in Sources */,
-				31DBF0D02680DA3F006BC9E0 /* ViewController.swift in Sources */,
 				31B5554D268243E10052980F /* DataManager.swift in Sources */,
 				31CA03F526B0741800DB032D /* NetworkRouter.swift in Sources */,
 				31058DC626EAA04F00181455 /* TapBarController.swift in Sources */,
+				316FD4F226F2454300863E53 /* SettingsTableViewCell.swift in Sources */,
 				31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */,
 				31DBF0CC2680DA3F006BC9E0 /* AppDelegate.swift in Sources */,
 				31CA03FD26B074A300DB032D /* Router.swift in Sources */,
 				31CA03FF26B074B800DB032D /* URLParameterEncoder.swift in Sources */,
 				31CA03ED26B0731000DB032D /* NetworkManager.swift in Sources */,
 				31058DBB26EA68C200181455 /* EventsViewController.swift in Sources */,
+				313415DF26F06F6800027D48 /* ImageCollectionViewCell.swift in Sources */,
 				31DBF0D62680DA3F006BC9E0 /* KudaGo.xcdatamodeld in Sources */,
 				31A4CB1C2682502E006A9A13 /* OnbTableViewCell.swift in Sources */,
 				31CA03F126B073B200DB032D /* ParameterEncoding.swift in Sources */,
 				31058DC226EA69B100181455 /* SettingsViewController.swift in Sources */,
 				31CA03EB26B0725200DB032D /* KudaGoModel.swift in Sources */,
+				313415E126F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
+				316FD4EC26F1E4AB00863E53 /* GalleryTableViewCell.swift in Sources */,
 				31DBF0CE2680DA3F006BC9E0 /* SceneDelegate.swift in Sources */,
 				31A4CB1A268249FB006A9A13 /* OnbPresentor.swift in Sources */,
+				316FD4EE26F1E4C600863E53 /* TextTableViewCell.swift in Sources */,
 				31CA03FB26B0748500DB032D /* HTTPMethod.swift in Sources */,
 				31A4CB1826824539006A9A13 /* OnbViewController.swift in Sources */,
+				316FD4F526F3035800863E53 /* EventPlaceholderView.swift in Sources */,
 				31CA03F326B0740000DB032D /* JSONParameterEncoder.swift in Sources */,
 				31CA03EF26B0735F00DB032D /* KudaGoEndPoint.swift in Sources */,
 			);

@@ -59,7 +59,7 @@ class OnbViewController: UIViewController {
         view.addSubview(backgroundImage)
         view.addSubview(titleLabel)
         view.addSubview(tableView)
-        UINavigationBar.appearance().prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         setConstraints()
         

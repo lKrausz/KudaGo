@@ -26,6 +26,7 @@ struct NetworkManager {
     static let version = "v1.4"
     static let shared = NetworkManager()
     private let router = Router<KudaGoAPI>()
+    let queue = DispatchQueue.global(qos: .background)
     
     fileprivate func handleNetworkResponse(_ responce: HTTPURLResponse) -> Result<String> {
         switch responce.statusCode {
@@ -36,7 +37,7 @@ struct NetworkManager {
         default: return .failure(NetworkResponse.failed.rawValue)
         }
     }
-    
+    //TODO: добавить дженерик на completion блок для задач
     func getLocations(completion: @escaping ([OnboardingApiResponse]?, _ error: String?) -> ()) {
         router.request(.locations, completion:  { (data, response, error) in
             if error != nil {
@@ -88,5 +89,64 @@ struct NetworkManager {
             }
         })
     }
+    
+    func getEvents(page: Int, page_size: Int, completion: @escaping ([Event]?, _ error: String?) -> ()) {
+        router.request(.eventList(page: page, page_size: page_size), completion:  { (data, response, error) in
+            if error != nil {
+                completion(nil, "Check your network connection")
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse =  try JSONDecoder().decode(EventsApiResponse.self, from: responseData)
+                        completion(apiResponse.results, nil)
+                    } catch {
+                        completion(nil,NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        })
+    }
+    
+    func getEvent(id: Int, completion: @escaping (EventFullDesc?, _ error: String?) -> ()) {
+        router.request(.event(id: id), completion:  { (data, response, error) in
+            if error != nil {
+                completion(nil, "Check your network connection")
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse =  try JSONDecoder().decode(EventFullDesc.self, from: responseData)
+                        completion(apiResponse, nil)
+                    } catch {
+                        completion(nil,NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        })
+    }
+    
+    func getImage(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        queue.async {
+            URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+        }
+    }
+
 }
 
