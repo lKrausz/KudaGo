@@ -11,22 +11,30 @@ class TapBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let events = generateNavController(vc: EventsViewController(), title: "События", image: UIImage(named: "event"))
-        let bookmarks = generateNavController(vc: BookMarksViewController(), title: "Избранное", image: UIImage(named: "bookmark"))
-        let settings = generateNavController(vc: SettingsViewController(), title: "Настройки", image: UIImage(named: "settings"))
-        
+
+        let events = generateNavController(viewController: EventsViewController(),
+                                           title: "События",
+                                           image: UIImage(named: "event"))
+        let bookmarks = generateNavController(viewController: BookmarkViewController(),
+                                              title: "Избранное",
+                                              image: UIImage(named: "bookmark"))
+        let settings = generateNavController(viewController: SettingsViewController(),
+                                             title: "Настройки",
+                                             image: UIImage(named: "settings"))
+
         viewControllers = [events, bookmarks, settings]
 
     }
-    
-    fileprivate func generateNavController(vc: UIViewController, title: String, image: UIImage?) -> UINavigationController {
-        vc.navigationItem.title = title
-        let navController = UINavigationController(rootViewController: vc)
+
+    fileprivate func generateNavController(viewController: UIViewController,
+                                           title: String,
+                                           image: UIImage?) -> UINavigationController {
+        viewController.navigationItem.title = title
+        let navController = UINavigationController(rootViewController: viewController)
         navController.title = title
         navController.tabBarItem.image = image
         navController.navigationBar.prefersLargeTitles = true
         return navController
     }
-    
+
 }

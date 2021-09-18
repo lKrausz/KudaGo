@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31058DBB26EA68C200181455 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBA26EA68C200181455 /* EventsViewController.swift */; };
-		31058DBD26EA68D000181455 /* BookMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBC26EA68D000181455 /* BookMarksViewController.swift */; };
+		31058DBD26EA68D000181455 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBC26EA68D000181455 /* BookmarkViewController.swift */; };
 		31058DC026EA690000181455 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBF26EA690000181455 /* EventViewController.swift */; };
 		31058DC226EA69B100181455 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC126EA69B100181455 /* SettingsViewController.swift */; };
 		31058DC626EAA04F00181455 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC526EAA04F00181455 /* TapBarController.swift */; };
@@ -19,8 +19,11 @@
 		316FD4EE26F1E4C600863E53 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */; };
 		316FD4F226F2454300863E53 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4F126F2454300863E53 /* SettingsTableViewCell.swift */; };
 		316FD4F526F3035800863E53 /* EventPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4F426F3035800863E53 /* EventPlaceholderView.swift */; };
+		316FD4F826F3A91000863E53 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4F726F3A91000863E53 /* DataBaseManager.swift */; };
+		316FD50326F4C56A00863E53 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50226F4C56A00863E53 /* EventModel.swift */; };
+		316FD50826F4CCF200863E53 /* EventDescription+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */; };
+		316FD50926F4CCF200863E53 /* EventDescription+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */; };
 		31A4CB1826824539006A9A13 /* OnbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1726824539006A9A13 /* OnbViewController.swift */; };
-		31A4CB1A268249FB006A9A13 /* OnbPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB19268249FB006A9A13 /* OnbPresentor.swift */; };
 		31A4CB1C2682502E006A9A13 /* OnbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */; };
 		31B5554D268243E10052980F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5554C268243E10052980F /* DataManager.swift */; };
 		31CA03EB26B0725200DB032D /* KudaGoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03EA26B0725200DB032D /* KudaGoModel.swift */; };
@@ -41,6 +44,7 @@
 		31DBF0DB2680DA40006BC9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */; };
 		31DBF0E62680DA40006BC9E0 /* KudaGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0E52680DA40006BC9E0 /* KudaGoTests.swift */; };
 		31DBF0F12680DA40006BC9E0 /* KudaGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DBF0F02680DA40006BC9E0 /* KudaGoUITests.swift */; };
+		B7315D898BDC8A8C65853BDC /* Pods_KudaGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00E68828EA3D821F52DB644 /* Pods_KudaGo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		029C207B47C8A3338A59E07E /* Pods-KudaGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.debug.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.debug.xcconfig"; sourceTree = "<group>"; };
 		31058DBA26EA68C200181455 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		31058DBC26EA68D000181455 /* BookMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksViewController.swift; sourceTree = "<group>"; };
+		31058DBC26EA68D000181455 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		31058DBF26EA690000181455 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		31058DC126EA69B100181455 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		31058DC526EAA04F00181455 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
@@ -73,8 +78,11 @@
 		316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		316FD4F126F2454300863E53 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		316FD4F426F3035800863E53 /* EventPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPlaceholderView.swift; sourceTree = "<group>"; };
+		316FD4F726F3A91000863E53 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		316FD50226F4C56A00863E53 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventDescription+CoreDataClass.swift"; sourceTree = "<group>"; };
+		316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventDescription+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		31A4CB1726824539006A9A13 /* OnbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbViewController.swift; sourceTree = "<group>"; };
-		31A4CB19268249FB006A9A13 /* OnbPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbPresentor.swift; sourceTree = "<group>"; };
 		31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbTableViewCell.swift; sourceTree = "<group>"; };
 		31B5554C268243E10052980F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		31CA03EA26B0725200DB032D /* KudaGoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KudaGoModel.swift; sourceTree = "<group>"; };
@@ -101,6 +109,8 @@
 		31DBF0EC2680DA40006BC9E0 /* KudaGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KudaGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DBF0F02680DA40006BC9E0 /* KudaGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KudaGoUITests.swift; sourceTree = "<group>"; };
 		31DBF0F22680DA40006BC9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B408E27CB5D20522E3DFA59A /* Pods-KudaGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KudaGo.release.xcconfig"; path = "Target Support Files/Pods-KudaGo/Pods-KudaGo.release.xcconfig"; sourceTree = "<group>"; };
+		C00E68828EA3D821F52DB644 /* Pods_KudaGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KudaGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7315D898BDC8A8C65853BDC /* Pods_KudaGo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,11 +139,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082845C94F29D9F2B5AC8AC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C00E68828EA3D821F52DB644 /* Pods_KudaGo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		31058DC826EAB30C00181455 /* Main screen */ = {
 			isa = PBXGroup;
 			children = (
+				316FD50D26F5CD2700863E53 /* Model */,
 				31058DC526EAA04F00181455 /* TapBarController.swift */,
 				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
+				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
+				316FD4F426F3035800863E53 /* EventPlaceholderView.swift */,
 				316FD4EF26F1E4C900863E53 /* EventView */,
 				316FD4F626F308E500863E53 /* EventsView */,
 				316FD4F326F3033100863E53 /* BookmarkView */,
@@ -147,7 +169,6 @@
 				31058DBF26EA690000181455 /* EventViewController.swift */,
 				316FD4EB26F1E4AB00863E53 /* GalleryTableViewCell.swift */,
 				313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */,
-				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
 				313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */,
 			);
 			path = EventView;
@@ -165,8 +186,7 @@
 		316FD4F326F3033100863E53 /* BookmarkView */ = {
 			isa = PBXGroup;
 			children = (
-				31058DBC26EA68D000181455 /* BookMarksViewController.swift */,
-				316FD4F426F3035800863E53 /* EventPlaceholderView.swift */,
+				31058DBC26EA68D000181455 /* BookmarkViewController.swift */,
 			);
 			path = BookmarkView;
 			sourceTree = "<group>";
@@ -179,10 +199,46 @@
 			path = EventsView;
 			sourceTree = "<group>";
 		};
+		316FD50126F4850100863E53 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */,
+				316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */,
+				31DBF0D42680DA3F006BC9E0 /* KudaGo.xcdatamodeld */,
+				316FD4F726F3A91000863E53 /* DataBaseManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		316FD50B26F510EA00863E53 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				316FD50C26F5116400863E53 /* UserDefaults */,
+				316FD50126F4850100863E53 /* CoreData */,
+				31CA03E326B0718100DB032D /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		316FD50C26F5116400863E53 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				31B5554C268243E10052980F /* DataManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		316FD50D26F5CD2700863E53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				316FD50226F4C56A00863E53 /* EventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		31A4CB1426824510006A9A13 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				31A4CB19268249FB006A9A13 /* OnbPresentor.swift */,
 				31A4CB1726824539006A9A13 /* OnbViewController.swift */,
 				31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */,
 			);
@@ -254,6 +310,8 @@
 				31DBF0E42680DA40006BC9E0 /* KudaGoTests */,
 				31DBF0EF2680DA40006BC9E0 /* KudaGoUITests */,
 				31DBF0C92680DA3F006BC9E0 /* Products */,
+				9D0017CCCF0E7BF00D0F0273 /* Pods */,
+				082845C94F29D9F2B5AC8AC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,16 +328,14 @@
 		31DBF0CA2680DA3F006BC9E0 /* KudaGo */ = {
 			isa = PBXGroup;
 			children = (
-				31CA03E326B0718100DB032D /* Network */,
 				31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */,
 				31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */,
+				316FD50B26F510EA00863E53 /* Services */,
 				31A4CB1426824510006A9A13 /* Onboarding */,
 				31058DC826EAB30C00181455 /* Main screen */,
-				31DBF0D72680DA40006BC9E0 /* Assets.xcassets */,
 				31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */,
+				31DBF0D72680DA40006BC9E0 /* Assets.xcassets */,
 				31DBF0DC2680DA40006BC9E0 /* Info.plist */,
-				31DBF0D42680DA3F006BC9E0 /* KudaGo.xcdatamodeld */,
-				31B5554C268243E10052980F /* DataManager.swift */,
 			);
 			path = KudaGo;
 			sourceTree = "<group>";
@@ -302,6 +358,15 @@
 			path = KudaGoUITests;
 			sourceTree = "<group>";
 		};
+		9D0017CCCF0E7BF00D0F0273 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				029C207B47C8A3338A59E07E /* Pods-KudaGo.debug.xcconfig */,
+				B408E27CB5D20522E3DFA59A /* Pods-KudaGo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,9 +374,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31DBF0F52680DA40006BC9E0 /* Build configuration list for PBXNativeTarget "KudaGo" */;
 			buildPhases = (
+				2408380DA181B40D4AC8CD0E /* [CP] Check Pods Manifest.lock */,
 				31DBF0C42680DA3F006BC9E0 /* Sources */,
 				31DBF0C52680DA3F006BC9E0 /* Frameworks */,
 				31DBF0C62680DA3F006BC9E0 /* Resources */,
+				316FD50E26F6475000863E53 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -426,6 +493,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2408380DA181B40D4AC8CD0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KudaGo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		316FD50E26F6475000863E53 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		31DBF0C42680DA3F006BC9E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -434,16 +543,18 @@
 				31CA03F926B0747000DB032D /* HTTPTask.swift in Sources */,
 				31058DC026EA690000181455 /* EventViewController.swift in Sources */,
 				31CA03F726B0744500DB032D /* EndPointType.swift in Sources */,
-				31058DBD26EA68D000181455 /* BookMarksViewController.swift in Sources */,
+				31058DBD26EA68D000181455 /* BookmarkViewController.swift in Sources */,
 				31B5554D268243E10052980F /* DataManager.swift in Sources */,
 				31CA03F526B0741800DB032D /* NetworkRouter.swift in Sources */,
 				31058DC626EAA04F00181455 /* TapBarController.swift in Sources */,
 				316FD4F226F2454300863E53 /* SettingsTableViewCell.swift in Sources */,
 				31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */,
+				316FD50926F4CCF200863E53 /* EventDescription+CoreDataProperties.swift in Sources */,
 				31DBF0CC2680DA3F006BC9E0 /* AppDelegate.swift in Sources */,
 				31CA03FD26B074A300DB032D /* Router.swift in Sources */,
 				31CA03FF26B074B800DB032D /* URLParameterEncoder.swift in Sources */,
 				31CA03ED26B0731000DB032D /* NetworkManager.swift in Sources */,
+				316FD4F826F3A91000863E53 /* DataBaseManager.swift in Sources */,
 				31058DBB26EA68C200181455 /* EventsViewController.swift in Sources */,
 				313415DF26F06F6800027D48 /* ImageCollectionViewCell.swift in Sources */,
 				31DBF0D62680DA3F006BC9E0 /* KudaGo.xcdatamodeld in Sources */,
@@ -451,10 +562,11 @@
 				31CA03F126B073B200DB032D /* ParameterEncoding.swift in Sources */,
 				31058DC226EA69B100181455 /* SettingsViewController.swift in Sources */,
 				31CA03EB26B0725200DB032D /* KudaGoModel.swift in Sources */,
+				316FD50826F4CCF200863E53 /* EventDescription+CoreDataClass.swift in Sources */,
+				316FD50326F4C56A00863E53 /* EventModel.swift in Sources */,
 				313415E126F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				316FD4EC26F1E4AB00863E53 /* GalleryTableViewCell.swift in Sources */,
 				31DBF0CE2680DA3F006BC9E0 /* SceneDelegate.swift in Sources */,
-				31A4CB1A268249FB006A9A13 /* OnbPresentor.swift in Sources */,
 				316FD4EE26F1E4C600863E53 /* TextTableViewCell.swift in Sources */,
 				31CA03FB26B0748500DB032D /* HTTPMethod.swift in Sources */,
 				31A4CB1826824539006A9A13 /* OnbViewController.swift in Sources */,
@@ -625,6 +737,7 @@
 		};
 		31DBF0F62680DA40006BC9E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029C207B47C8A3338A59E07E /* Pods-KudaGo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -645,6 +758,7 @@
 		};
 		31DBF0F72680DA40006BC9E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B408E27CB5D20522E3DFA59A /* Pods-KudaGo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
-    
+
     func cellConfig(text: String) {
         self.textLabel?.text = text
     }

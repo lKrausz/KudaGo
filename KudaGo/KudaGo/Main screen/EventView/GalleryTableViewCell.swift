@@ -8,8 +8,8 @@
 import UIKit
 
 class GalleryTableViewCell: UITableViewCell {
-    
-    var data = [Image].init()
+
+    var images = [String].init()
 
     lazy var galeryCollectionView: UICollectionView = {
         let layout = CenterCellCollectionViewFlowLayout()
@@ -21,15 +21,15 @@ class GalleryTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.showsHorizontalScrollIndicator = false
-        
+
         return collectionView
     }()
-    
-    func cellConfig(data: [Image]) {
-        self.data = data
-        
+
+    func cellConfig(data: [String]) {
+        self.images = data
+
         contentView.addSubview(galeryCollectionView)
-        
+
         NSLayoutConstraint.activate([
             galeryCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             galeryCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -37,12 +37,12 @@ class GalleryTableViewCell: UITableViewCell {
             galeryCollectionView.heightAnchor.constraint(equalToConstant: 200),
             galeryCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
-        
+
         if let flowLayout = galeryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
         }
     }
-    
+
     override var reuseIdentifier: String? {
         return "GalleryTableViewCell"
     }
@@ -51,22 +51,23 @@ class GalleryTableViewCell: UITableViewCell {
 
 extension GalleryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return images.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.cellConfig(image: data[indexPath.row])
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell
+        else { preconditionFailure("Cell type not found")}
+        cell.cellConfig(image: images[indexPath.row])
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let width = collectionView.frame.width - 40
         let height = collectionView.frame.height
         return CGSize(width: width, height: height)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 50, left: 20, bottom: 50, right: 20)
     }

@@ -7,8 +7,16 @@
 
 import UIKit
 
+protocol EventTableViewCellProtocol: AnyObject {
+    func reloadTableView()
+}
+
 class EventTableViewCell: UITableViewCell {
-    
+
+    var eventId = 0
+    var indexPath: IndexPath = []
+    weak var delegate: EventTableViewCellProtocol?
+
     lazy var eventImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -18,7 +26,7 @@ class EventTableViewCell: UITableViewCell {
         view.isUserInteractionEnabled = true
         return view
     }()
-    
+
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -26,19 +34,19 @@ class EventTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
-    
+
     lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     lazy var bookmarkButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
@@ -53,47 +61,73 @@ class EventTableViewCell: UITableViewCell {
         return "EventTableViewCell"
     }
 
-    func cellConfig(data: Event) {
-        let url = URL(string:data.images[0].image)!
-        NetworkManager.shared.getImage(from: url) { data, response, error in
+    func cellConfig(data: EventModel, indexPath: IndexPath) {
+        self.indexPath = indexPath
+        self.eventId = Int(data.id)
+        let url = URL(string: data.images[0])!
+        NetworkManager.shared.getImage(from: url) { data, _, error in
             guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 self?.eventImage.image = UIImage(data: data)
             }
         }
-        titleLabel.text = data.title.uppercased()
-        priceLabel.text = "Цена: " + {
-            if data.price == "" {
-                return "Бесплатно" }
-            else {
-                return data.price
-            }
-        }()
-        //TODO: Придумать как собирать нужные даты из Апи / забить и отправлять на сайт для подробной информации
-        let dataStart = data.dates.last?.start_date ?? ""
-        let dataEnd = data.dates.last?.end_date ?? "Постоянно"
-        
-        dateLabel.text = "Дата: \(dataStart) - \(dataEnd)"
+        titleLabel.text = data.title
+        priceLabel.text = data.price
+        dateLabel.text = data.dates
+
         contentView.addSubview(eventImage)
         contentView.addSubview(titleLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(dateLabel)
         eventImage.addSubview(bookmarkButton)
-        
+
         setConstraints()
     }
-    
+
     @objc func addBookmark(sender: UIButton!) {
-        //TODO: add bookmark logic & animation
-        print("tapped")
+        // TODO: add bookmark logic & animation
+
+        var isSaved = true
+
+        if !isSaved {
+            NetworkManager.shared.getEvent(eventId: Int(eventId), completion: { (data, error) in
+                if let error = error {
+                    print(error)
+                }
+                if let data = data {
+                    let eventData = EventModel(data: data)
+                    let newBookmark = EventDescription(context: DataBaseManager.shared.context())
+
+                    newBookmark.id = eventData.id
+                    newBookmark.dates = eventData.dates
+                    newBookmark.eventDesc = eventData.eventDescription
+                    newBookmark.images = eventData.images
+                    newBookmark.place = eventData.place
+                    newBookmark.title = eventData.title
+                    newBookmark.url = eventData.url
+                    newBookmark.price = eventData.price
+
+                    DataBaseManager.shared.saveContext()
+                    DataBaseManager.shared.loadData()
+                    isSaved = false
+                }
+            })
+        } else {
+            let removeEvent = DataBaseManager.shared.fetchedResultsController.object(at: indexPath)
+            DataBaseManager.shared.context().delete(removeEvent)
+            DataBaseManager.shared.saveContext()
+            DataBaseManager.shared.loadData()
+            isSaved = true
+        }
+        delegate?.reloadTableView()
     }
-    
+
     func setConstraints() {
         NSLayoutConstraint.activate([
             eventImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             eventImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             eventImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            eventImage.heightAnchor.constraint(equalToConstant: 180),
+            eventImage.heightAnchor.constraint(equalToConstant: 180)
         ])
 
         NSLayoutConstraint.activate([
@@ -107,14 +141,14 @@ class EventTableViewCell: UITableViewCell {
             dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
         ])
-        
+
         NSLayoutConstraint.activate([
             priceLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
-        
+
         NSLayoutConstraint.activate([
             bookmarkButton.topAnchor.constraint(equalTo: eventImage.topAnchor, constant: 8),
             bookmarkButton.trailingAnchor.constraint(equalTo: eventImage.trailingAnchor, constant: -8),
@@ -122,12 +156,9 @@ class EventTableViewCell: UITableViewCell {
             bookmarkButton.widthAnchor.constraint(equalToConstant: 40)
         ])
     }
-    
+
     override func prepareForReuse() {
         self.eventImage.image = nil
-        priceLabel.text = nil
-        titleLabel.text = nil
-        dateLabel.text = nil
     }
-    
+
 }

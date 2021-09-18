@@ -9,7 +9,7 @@ import UIKit
 
 class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
-    var mostRecentOffset : CGPoint = CGPoint()
+    var mostRecentOffset: CGPoint = CGPoint()
 
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
 
@@ -22,7 +22,7 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
             let halfWidth = collectionView.bounds.size.width * 0.5
             if let attributesForVisibleCells = self.layoutAttributesForElements(in: collectionView.bounds) {
 
-                var candidateAttributes : UICollectionViewLayoutAttributes?
+                var candidateAttributes: UICollectionViewLayoutAttributes?
                 for attributes in attributesForVisibleCells {
 
                     if attributes.representedElementCategory != UICollectionView.ElementCategory.cell {
@@ -35,7 +35,7 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
                     candidateAttributes = attributes
                 }
 
-                if(proposedContentOffset.x == -(collectionView.contentInset.left)) {
+                if proposedContentOffset.x == -(collectionView.contentInset.left) {
                     return proposedContentOffset
                 }
 
@@ -44,13 +44,11 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
                 }
                 mostRecentOffset = CGPoint(x: floor(candidateAttributes!.center.x - halfWidth), y: proposedContentOffset.y)
                 return mostRecentOffset
-
             }
         }
 
         mostRecentOffset = super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
         return mostRecentOffset
     }
-
 
 }

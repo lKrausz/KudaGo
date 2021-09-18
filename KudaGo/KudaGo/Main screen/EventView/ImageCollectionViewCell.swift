@@ -8,40 +8,36 @@
 import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
-    
+
     override var reuseIdentifier: String? {
         return "ImageCollectionViewCell"
     }
-    
+
     let imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         return view
     }()
-    
-    func cellConfig(image: Image) {
-        backgroundColor = .red
+
+    func cellConfig(image: String) {
+        backgroundColor = .gray
         contentView.addSubview(imageView)
-        
+
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
-        
-        downloadImage(from: URL.init(string: image.image)!)
-        layer.cornerRadius = 35
-        clipsToBounds = true
-    }
-        
-    func downloadImage(from url: URL) {
-        NetworkManager.shared.getImage(from: url) { data, response, error in
+
+        NetworkManager.shared.getImage(from: URL.init(string: image)!) { data, _, error in
             guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 self?.imageView.image = UIImage(data: data)
             }
         }
+        layer.cornerRadius = 35
+        clipsToBounds = true
     }
 }

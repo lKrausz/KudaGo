@@ -15,7 +15,7 @@ class OnbTableViewCell: UITableViewCell {
         label.textAlignment = .center
         return label
     }()
-    
+
     lazy var view: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 20
@@ -26,7 +26,7 @@ class OnbTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     func cellConfig(labelContent: String?) {
         self.label.text = labelContent
         contentView.addSubview(view)
@@ -35,7 +35,7 @@ class OnbTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         setConstraints()
     }
-    
+
     func setConstraints() {
 
         NSLayoutConstraint.activate([
@@ -46,19 +46,19 @@ class OnbTableViewCell: UITableViewCell {
             view.heightAnchor.constraint(equalToConstant: 50)
 
         ])
-        
+
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5)
         ])
     }
-    
+
     override var reuseIdentifier: String? {
         return "OnbTableViewCell"
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
