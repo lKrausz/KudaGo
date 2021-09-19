@@ -46,7 +46,9 @@ class EventsViewController: UIViewController {
 
     func fetchData() {
 
-        NetworkManager.shared.getEvents(page: self.page, pageSize: self.pageSize, completion: { [weak self] (data, error) in
+        NetworkManager.shared.getEvents(page: self.page,
+                                        pageSize: self.pageSize,
+                                        completion: { [weak self] data, error in
             guard let self = self else { return }
             if let error = error {
                 print(error)
@@ -75,14 +77,14 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found")}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found") }
         let event = EventModel(data: self.data[indexPath.row])
         cell.cellConfig(data: event, indexPath: indexPath)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NetworkManager.shared.getEvent(eventId: Int(data[indexPath.row].id), completion: { [weak self] (data, error) in
+        NetworkManager.shared.getEvent(eventId: Int(data[indexPath.row].id), completion: { [weak self] data, error in
                 guard let self = self else { return }
                 if let error = error {
                     print(error)
@@ -104,5 +106,4 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
             fetchData()
         }
     }
-
 }

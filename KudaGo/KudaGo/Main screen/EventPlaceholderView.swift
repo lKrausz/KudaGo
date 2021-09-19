@@ -11,7 +11,7 @@ class EventPlaceholderView: UIView {
 
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage.init(named: "eventPlaceholder")
+        imageView.image = UIImage(named: "eventPlaceholder")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -26,7 +26,7 @@ class EventPlaceholderView: UIView {
     }()
 
     init(text: String) {
-        super.init(frame: CGRect.init(x: 0,
+        super.init(frame: CGRect(x: 0,
                                       y: 0,
                                       width: UIScreen.main.bounds.width,
                                       height: UIScreen.main.bounds.height))

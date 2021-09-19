@@ -40,7 +40,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
 
-    fileprivate func configureParameters(bodyParams: Parameters?, urlParams: Parameters?, request: inout URLRequest) throws {
+    fileprivate func configureParameters(bodyParams: Parameters?,
+                                         urlParams: Parameters?,
+                                         request: inout URLRequest) throws {
         do {
             if let bodyParams = bodyParams {
                 try JSONParameterEncoder.encode(urlRequest: &request, with: bodyParams)

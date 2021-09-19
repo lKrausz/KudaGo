@@ -10,12 +10,12 @@ import Foundation
 class DataManager {
     static let shared = DataManager()
 
-     func isNewUser() -> Bool {
+     func getIsNewUserStatus() -> Bool {
         return UserDefaults.standard.bool(forKey: "isNewUser")
     }
 
-    func setIsNewUser() {
-        UserDefaults.standard.set(true, forKey: "isNewUser")
+    func setIsNewUserStatus() {
+        UserDefaults.standard.set(false, forKey: "isNewUser")
     }
 
      func getLocation() -> String {

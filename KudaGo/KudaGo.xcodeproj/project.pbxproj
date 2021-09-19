@@ -11,7 +11,7 @@
 		31058DBD26EA68D000181455 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBC26EA68D000181455 /* BookmarkViewController.swift */; };
 		31058DC026EA690000181455 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DBF26EA690000181455 /* EventViewController.swift */; };
 		31058DC226EA69B100181455 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC126EA69B100181455 /* SettingsViewController.swift */; };
-		31058DC626EAA04F00181455 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC526EAA04F00181455 /* TapBarController.swift */; };
+		31058DC626EAA04F00181455 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC526EAA04F00181455 /* TabBarController.swift */; };
 		31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31058DC926EAB82B00181455 /* EventTableViewCell.swift */; };
 		313415DF26F06F6800027D48 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */; };
 		313415E126F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */; };
@@ -23,6 +23,7 @@
 		316FD50326F4C56A00863E53 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50226F4C56A00863E53 /* EventModel.swift */; };
 		316FD50826F4CCF200863E53 /* EventDescription+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */; };
 		316FD50926F4CCF200863E53 /* EventDescription+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */; };
+		316FD51026F7058900863E53 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50F26F7058900863E53 /* BookmarkButton.swift */; };
 		31A4CB1826824539006A9A13 /* OnbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1726824539006A9A13 /* OnbViewController.swift */; };
 		31A4CB1C2682502E006A9A13 /* OnbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */; };
 		31B5554D268243E10052980F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5554C268243E10052980F /* DataManager.swift */; };
@@ -70,7 +71,7 @@
 		31058DBC26EA68D000181455 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		31058DBF26EA690000181455 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		31058DC126EA69B100181455 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		31058DC526EAA04F00181455 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
+		31058DC526EAA04F00181455 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		31058DC926EAB82B00181455 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		316FD50226F4C56A00863E53 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventDescription+CoreDataClass.swift"; sourceTree = "<group>"; };
 		316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventDescription+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		316FD50F26F7058900863E53 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
 		31A4CB1726824539006A9A13 /* OnbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbViewController.swift; sourceTree = "<group>"; };
 		31A4CB1B2682502E006A9A13 /* OnbTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbTableViewCell.swift; sourceTree = "<group>"; };
 		31B5554C268243E10052980F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -151,10 +153,11 @@
 			isa = PBXGroup;
 			children = (
 				316FD50D26F5CD2700863E53 /* Model */,
-				31058DC526EAA04F00181455 /* TapBarController.swift */,
+				31058DC526EAA04F00181455 /* TabBarController.swift */,
 				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
 				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
 				316FD4F426F3035800863E53 /* EventPlaceholderView.swift */,
+				316FD50F26F7058900863E53 /* BookmarkButton.swift */,
 				316FD4EF26F1E4C900863E53 /* EventView */,
 				316FD4F626F308E500863E53 /* EventsView */,
 				316FD4F326F3033100863E53 /* BookmarkView */,
@@ -546,7 +549,7 @@
 				31058DBD26EA68D000181455 /* BookmarkViewController.swift in Sources */,
 				31B5554D268243E10052980F /* DataManager.swift in Sources */,
 				31CA03F526B0741800DB032D /* NetworkRouter.swift in Sources */,
-				31058DC626EAA04F00181455 /* TapBarController.swift in Sources */,
+				31058DC626EAA04F00181455 /* TabBarController.swift in Sources */,
 				316FD4F226F2454300863E53 /* SettingsTableViewCell.swift in Sources */,
 				31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */,
 				316FD50926F4CCF200863E53 /* EventDescription+CoreDataProperties.swift in Sources */,
@@ -557,6 +560,7 @@
 				316FD4F826F3A91000863E53 /* DataBaseManager.swift in Sources */,
 				31058DBB26EA68C200181455 /* EventsViewController.swift in Sources */,
 				313415DF26F06F6800027D48 /* ImageCollectionViewCell.swift in Sources */,
+				316FD51026F7058900863E53 /* BookmarkButton.swift in Sources */,
 				31DBF0D62680DA3F006BC9E0 /* KudaGo.xcdatamodeld in Sources */,
 				31A4CB1C2682502E006A9A13 /* OnbTableViewCell.swift in Sources */,
 				31CA03F126B073B200DB032D /* ParameterEncoding.swift in Sources */,

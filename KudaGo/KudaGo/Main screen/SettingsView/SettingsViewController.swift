@@ -50,13 +50,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { preconditionFailure("Cell type not found")}
-        cell.cellConfig(text: settings[indexPath.row].rawValue)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { preconditionFailure("Cell type not found") }
+        cell.cellConfig(setting: settings[indexPath.row].rawValue)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(OnbViewController(type: settings[indexPath.row]), animated: true, completion: nil)
+        navigationController?.pushViewController(OnbViewController(type: settings[indexPath.row], isOnboarding: false), animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

@@ -47,12 +47,11 @@ class EventTableViewCell: UITableViewCell {
         return label
     }()
 
-    lazy var bookmarkButton: UIButton = {
-        let button = UIButton()
+    lazy var bookmarkButton: BookmarkButton = {
+        let button = BookmarkButton()
         button.layer.cornerRadius = 20
         button.backgroundColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage.init(named: "bookmark"), for: .normal)
         button.addTarget(self, action: #selector(addBookmark(sender:)), for: .touchUpInside)
         return button
     }()
@@ -84,40 +83,23 @@ class EventTableViewCell: UITableViewCell {
         setConstraints()
     }
 
-    @objc func addBookmark(sender: UIButton!) {
-        // TODO: add bookmark logic & animation
-
-        var isSaved = true
-
-        if !isSaved {
-            NetworkManager.shared.getEvent(eventId: Int(eventId), completion: { (data, error) in
+    @objc func addBookmark(sender: BookmarkButton!) {
+        bookmarkButton.changeState()
+        if (DataBaseManager.shared.isInDataBase(eventID: eventId)) {
+            let removeEvent = DataBaseManager.shared.fetchedResultsController.object(at: indexPath)
+            DataBaseManager.shared.context().delete(removeEvent)
+            DataBaseManager.shared.saveContext()
+            DataBaseManager.shared.loadData()
+        } else {
+            NetworkManager.shared.getEvent(eventId: Int(eventId), completion: { data, error in
                 if let error = error {
                     print(error)
                 }
                 if let data = data {
                     let eventData = EventModel(data: data)
-                    let newBookmark = EventDescription(context: DataBaseManager.shared.context())
-
-                    newBookmark.id = eventData.id
-                    newBookmark.dates = eventData.dates
-                    newBookmark.eventDesc = eventData.eventDescription
-                    newBookmark.images = eventData.images
-                    newBookmark.place = eventData.place
-                    newBookmark.title = eventData.title
-                    newBookmark.url = eventData.url
-                    newBookmark.price = eventData.price
-
-                    DataBaseManager.shared.saveContext()
-                    DataBaseManager.shared.loadData()
-                    isSaved = false
+                    DataBaseManager.shared.addElement(element: eventData)
                 }
             })
-        } else {
-            let removeEvent = DataBaseManager.shared.fetchedResultsController.object(at: indexPath)
-            DataBaseManager.shared.context().delete(removeEvent)
-            DataBaseManager.shared.saveContext()
-            DataBaseManager.shared.loadData()
-            isSaved = true
         }
         delegate?.reloadTableView()
     }
@@ -159,6 +141,7 @@ class EventTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         self.eventImage.image = nil
+        self.bookmarkButton.setState(state: false)
     }
 
 }

@@ -31,7 +31,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
 
-        NetworkManager.shared.getImage(from: URL.init(string: image)!) { data, _, error in
+        NetworkManager.shared.getImage(from: URL(string: image)!) { data, _, error in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async { [weak self] in
                 self?.imageView.image = UIImage(data: data)

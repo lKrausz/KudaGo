@@ -48,7 +48,10 @@ class TextTableViewCell: UITableViewCell {
 }
 
 extension TextTableViewCell: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+    func textView(_ textView: UITextView,
+                  shouldInteractWith URL: URL,
+                  in characterRange: NSRange,
+                  interaction: UITextItemInteraction) -> Bool {
         delegate?.goToLink(url: URL, sender: self)
         return false
     }

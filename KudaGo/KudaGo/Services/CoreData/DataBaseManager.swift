@@ -15,7 +15,7 @@ class DataBaseManager {
 
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "KudaGo")
-        container.loadPersistentStores(completionHandler: { (_, error) in
+        container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -26,10 +26,6 @@ class DataBaseManager {
     func context() -> NSManagedObjectContext {
         return DataBaseManager.shared.persistentContainer.viewContext
     }
-//    
-//    func abc() {
-//        let results = context().fetch(NSFetchRequest.init(entityName: "").)
-//    }
 
     func saveContext() {
         if context().hasChanges {
@@ -43,23 +39,16 @@ class DataBaseManager {
         }
     }
 
-    func addItems() {
-        loadData()
-      do {
-        NSFetchedResultsController<EventDescription>.deleteCache(withName: fetchedResultsController.cacheName)
-        try fetchedResultsController.performFetch()
-      } catch {
-        print("Perform fetch failed")
-      }
-    }
-
     func loadData() {
         if fetchedResultsController == nil {
 
             let request = EventDescription.fetchRequest() as NSFetchRequest<EventDescription>
             request.sortDescriptors = []
 
-            fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: DataBaseManager.shared.context(), sectionNameKeyPath: nil, cacheName: "CACHENAME")
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                                  managedObjectContext: DataBaseManager.shared.context(),
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: "CACHENAME")
         }
         do {
             try fetchedResultsController.performFetch()
@@ -68,6 +57,39 @@ class DataBaseManager {
         }
         DispatchQueue.main.async {
            // self.tableView.reloadData()
+        }
+    }
+
+    func addElement(element: EventModel) {
+        let newBookmark = EventDescription(context: DataBaseManager.shared.context())
+
+        newBookmark.id = Int32(element.id)
+        newBookmark.dates = element.dates
+        newBookmark.eventDesc = element.eventDescription
+        newBookmark.images = element.images
+        newBookmark.place = element.place
+        newBookmark.title = element.title
+        newBookmark.url = element.url
+        newBookmark.price = element.price
+
+        DataBaseManager.shared.saveContext()
+        DataBaseManager.shared.loadData()
+    }
+
+    func isInDataBase(eventID: Int) -> Bool {
+        let request = EventDescription.fetchRequest() as NSFetchRequest<EventDescription>
+
+        let idPredicate = NSPredicate(format: "id LIKE %@", "\(eventID)")
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [idPredicate])
+        do {
+            let result = try context().fetch(request)
+            if result.isEmpty {
+                return false
+            } else {
+                return true
+            }
+        } catch {
+            return false
         }
     }
 

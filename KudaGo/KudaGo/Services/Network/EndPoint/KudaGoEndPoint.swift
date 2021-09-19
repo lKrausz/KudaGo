@@ -18,7 +18,7 @@ extension KudaGoAPI: EndPointType {
 
     var baseUrl: URL {
         guard let url = URL(string: "https://kudago.com/public-api/")
-        else { fatalError("baseURL could not be configured.")}
+        else { fatalError("baseURL could not be configured.") }
         return url
     }
 

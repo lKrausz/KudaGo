@@ -39,7 +39,7 @@ struct NetworkManager {
     }
     // TODO: добавить дженерик на completion блок для задач
     func getLocations(completion: @escaping ([OnboardingApiResponse]?, _ error: String?) -> Void) {
-        router.request(.locations, completion: { (data, response, error) in
+        router.request(.locations, completion: { data, response, error in
             if error != nil {
                 completion(nil, "Check your network connection")
             }
@@ -52,7 +52,7 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse =  try JSONDecoder().decode([OnboardingApiResponse].self, from: responseData)
+                        let apiResponse = try JSONDecoder().decode([OnboardingApiResponse].self, from: responseData)
                         completion(apiResponse, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
@@ -65,7 +65,7 @@ struct NetworkManager {
     }
 
     func getEventCategories(completion: @escaping ([OnboardingApiResponse]?, _ error: String?) -> Void) {
-        router.request(.eventCategories, completion: { (data, response, error) in
+        router.request(.eventCategories, completion: { data, response, error in
             if error != nil {
                 completion(nil, "Check your network connection")
             }
@@ -78,7 +78,7 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse =  try JSONDecoder().decode([OnboardingApiResponse].self, from: responseData)
+                        let apiResponse = try JSONDecoder().decode([OnboardingApiResponse].self, from: responseData)
                         completion(apiResponse, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
@@ -91,7 +91,7 @@ struct NetworkManager {
     }
 
     func getEvents(page: Int, pageSize: Int, completion: @escaping ([Event]?, _ error: String?) -> Void) {
-        router.request(.eventList(page: page, pageSize: pageSize), completion: { (data, response, error) in
+        router.request(.eventList(page: page, pageSize: pageSize), completion: { data, response, error in
             if error != nil {
                 completion(nil, "Check your network connection")
             }
@@ -104,7 +104,7 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse =  try JSONDecoder().decode(EventsApiResponse.self, from: responseData)
+                        let apiResponse = try JSONDecoder().decode(EventsApiResponse.self, from: responseData)
                         completion(apiResponse.results, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
@@ -117,7 +117,7 @@ struct NetworkManager {
     }
 
     func getEvent(eventId: Int, completion: @escaping (EventFullDesc?, _ error: String?) -> Void) {
-        router.request(.event(eventId: eventId), completion: { (data, response, error) in
+        router.request(.event(eventId: eventId), completion: { data, response, error in
             if error != nil {
                 completion(nil, "Check your network connection")
             }
@@ -130,7 +130,7 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse =  try JSONDecoder().decode(EventFullDesc.self, from: responseData)
+                        let apiResponse = try JSONDecoder().decode(EventFullDesc.self, from: responseData)
                         completion(apiResponse, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

@@ -11,7 +11,8 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     var mostRecentOffset: CGPoint = CGPoint()
 
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint,
+                                      withScrollingVelocity velocity: CGPoint) -> CGPoint {
 
         if velocity.x == 0 {
             return mostRecentOffset
@@ -29,7 +30,9 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
                         continue
                     }
 
-                    if (attributes.center.x == 0) || (attributes.center.x > (collectionView.contentOffset.x + halfWidth) && velocity.x < 0) {
+                    if (attributes.center.x == 0) ||
+                        (attributes.center.x > (collectionView.contentOffset.x + halfWidth) &&
+                        velocity.x < 0) {
                         continue
                     }
                     candidateAttributes = attributes
@@ -39,10 +42,11 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
                     return proposedContentOffset
                 }
 
-                guard let _ = candidateAttributes else {
+                guard candidateAttributes != nil else {
                     return mostRecentOffset
                 }
-                mostRecentOffset = CGPoint(x: floor(candidateAttributes!.center.x - halfWidth), y: proposedContentOffset.y)
+                mostRecentOffset = CGPoint(x: floor(candidateAttributes!.center.x - halfWidth),
+                                           y: proposedContentOffset.y)
                 return mostRecentOffset
             }
         }

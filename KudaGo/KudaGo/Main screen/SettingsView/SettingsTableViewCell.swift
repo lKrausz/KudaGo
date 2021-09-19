@@ -9,8 +9,9 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
-    func cellConfig(text: String) {
-        self.textLabel?.text = text
+    func cellConfig(setting: String) {
+        self.textLabel?.text = setting
+        self.accessoryType = .disclosureIndicator
     }
 
     override var reuseIdentifier: String? {

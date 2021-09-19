@@ -21,7 +21,6 @@ class BookmarkViewController: UIViewController {
         return tableView
     }()
 
-    // TODO: CoreData
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -36,10 +35,13 @@ class BookmarkViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-
         DataBaseManager.shared.loadData()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadTableView()
+    }
+    
 }
 
 extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
@@ -50,7 +52,7 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found")}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found") }
         let event = EventModel(data: DataBaseManager.shared.fetchedResultsController.object(at: indexPath))
         cell.delegate = self
         cell.cellConfig(data: event, indexPath: indexPath)
@@ -71,11 +73,11 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
             DataBaseManager.shared.loadData()
         }
     }
-
 }
 
 extension BookmarkViewController: EventTableViewCellProtocol {
     func reloadTableView() {
+        DataBaseManager.shared.loadData()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TapBarController: UITabBarController {
+class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class TapBarController: UITabBarController {
                                            image: UIImage(named: "event"))
         let bookmarks = generateNavController(viewController: BookmarkViewController(),
                                               title: "Избранное",
-                                              image: UIImage(named: "bookmark"))
+                                              image: UIImage(named: "bookmark_empty"))
         let settings = generateNavController(viewController: SettingsViewController(),
                                              title: "Настройки",
                                              image: UIImage(named: "settings"))
@@ -36,5 +36,4 @@ class TapBarController: UITabBarController {
         navController.navigationBar.prefersLargeTitles = true
         return navController
     }
-
 }

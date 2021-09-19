@@ -47,14 +47,27 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "bookmark"), style: .plain, target: self, action: #selector(addBookmark(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "bookmark_empty"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(addBookmark(_:)))
         view.backgroundColor = .white
         view.addSubview(contentTableView)
         setConstraints()
     }
 
-    @IBAction func addBookmark(_ sender: Any) {
-        print("bookmark")
+    @IBAction private func addBookmark(_ sender: Any) {
+        if (!DataBaseManager.shared.isInDataBase(eventID: Int(data.id))) {
+            NetworkManager.shared.getEvent(eventId: Int(data.id), completion: { data, error in
+                if let error = error {
+                    print(error)
+                }
+                if let data = data {
+                    let eventData = EventModel(data: data)
+                    DataBaseManager.shared.addElement(element: eventData)
+                }
+            })
+        }
     }
 
     func setConstraints() {
@@ -83,7 +96,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
 
         case .images:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GalleryTableViewCell", for: indexPath) as? GalleryTableViewCell else { preconditionFailure("Cell type not found")}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GalleryTableViewCell", for: indexPath) as? GalleryTableViewCell else { preconditionFailure("Cell type not found") }
             cell.cellConfig(data: data.images)
             return cell
 
@@ -114,7 +127,6 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             cell.cellConfig(label: data.url!)
             return cell
-
         }
     }
 }
@@ -122,7 +134,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
 extension EventViewController: TextTableViewCellDelegate {
 
     func goToLink(url: URL, sender: TextTableViewCell) {
-        let controller = SFSafariViewController.init(url: url)
+        let controller = SFSafariViewController(url: url)
         present(controller, animated: true, completion: nil)
     }
 }

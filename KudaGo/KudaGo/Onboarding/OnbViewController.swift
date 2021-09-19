@@ -11,6 +11,7 @@ class OnbViewController: UIViewController {
 
     var categories: Set<String> = []
     let currentType: SettingsType
+    let isOnboarding: Bool
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -52,8 +53,9 @@ class OnbViewController: UIViewController {
         return button
     }()
 
-    init(type: SettingsType) {
+    init(type: SettingsType, isOnboarding: Bool) {
         self.currentType = type
+        self.isOnboarding = isOnboarding
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -65,29 +67,33 @@ class OnbViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
-        backgroundImage.image = UIImage.init(named: "onbBG")
-        backgroundImage.clipsToBounds = false
-        backgroundImage.alpha = 0.9
+        view.backgroundColor = .lightGray
+        
+        if isOnboarding {
+            let backgroundImage = UIImageView(frame: CGRect(x: 0,
+                                                            y: 0,
+                                                            width: view.bounds.width,
+                                                            height: view.bounds.height))
+            backgroundImage.image = UIImage(named: "onbBG")
+            backgroundImage.clipsToBounds = false
+            backgroundImage.alpha = 0.9
+            view.addSubview(backgroundImage)
+        }
 
-        view.addSubview(backgroundImage)
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
-
         navigationController?.navigationBar.backgroundColor = .clear
 
         setConstraints()
-
         switch self.currentType {
 
         case .location:
             titleLabel.text = "О событиях в каком городе вы бы хотели узнавать?"
-            NetworkManager.shared.getLocations(completion: { [weak self] (data, error) in
+            NetworkManager.shared.getLocations(completion: { [weak self] data, error in
                 guard let self = self else { return }
                 if let error = error {
                     print(error)
@@ -104,7 +110,7 @@ class OnbViewController: UIViewController {
             titleLabel.text = "Какие категории событий вы бы хотели видеть в подборке?"
             self.tableView.allowsMultipleSelection = true
             self.tableView.allowsMultipleSelectionDuringEditing = true
-            NetworkManager.shared.getEventCategories(completion: { [weak self] (data, error) in
+            NetworkManager.shared.getEventCategories(completion: { [weak self] data, error in
                 guard let self = self else { return }
                 if let error = error {
                     print(error)
@@ -143,7 +149,7 @@ class OnbViewController: UIViewController {
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             button.heightAnchor.constraint(equalToConstant: 60),
-            button.widthAnchor.constraint(equalToConstant: view.bounds.width/2),
+            button.widthAnchor.constraint(equalToConstant: view.bounds.width / 2),
             tableView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -5)
         ])
 
@@ -160,8 +166,8 @@ class OnbViewController: UIViewController {
             return string
         }()
         DataManager.shared.setCategories(categories: categoriesString)
-        DataManager.shared.setIsNewUser()
-        UIApplication.shared.windows.first?.rootViewController = TapBarController()
+        DataManager.shared.setIsNewUserStatus()
+        UIApplication.shared.windows.first?.rootViewController = TabBarController()
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 
@@ -174,17 +180,20 @@ extension OnbViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OnbTableViewCell", for: indexPath) as? OnbTableViewCell else { preconditionFailure("Cell type not found")}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OnbTableViewCell", for: indexPath) as? OnbTableViewCell else { preconditionFailure("Cell type not found") }
         cell.cellConfig(labelContent: self.data[indexPath.row].name)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if currentType == .location {
-            let captureViewCon = OnbViewController(type: .eventCategories)
-            self.navigationController?.pushViewController(captureViewCon, animated: true)
-
             DataManager.shared.setLocation(location: data[indexPath.row].slug)
+            if isOnboarding {
+                let captureViewCon = OnbViewController(type: .eventCategories, isOnboarding: isOnboarding)
+                self.navigationController?.pushViewController(captureViewCon, animated: true)
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
         } else {
             self.categories.insert(data[indexPath.row].slug)
         }
@@ -195,5 +204,4 @@ extension OnbViewController: UITableViewDataSource, UITableViewDelegate {
             self.categories.remove(data[indexPath.row].slug)
         }
     }
-
 }
