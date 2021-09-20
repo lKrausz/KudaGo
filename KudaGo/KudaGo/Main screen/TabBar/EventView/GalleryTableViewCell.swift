@@ -29,14 +29,7 @@ class GalleryTableViewCell: UITableViewCell {
         self.images = data
 
         contentView.addSubview(galeryCollectionView)
-
-        NSLayoutConstraint.activate([
-            galeryCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            galeryCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            galeryCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            galeryCollectionView.heightAnchor.constraint(equalToConstant: 200),
-            galeryCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
-        ])
+        setConstraints()
 
         if let flowLayout = galeryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
@@ -46,6 +39,17 @@ class GalleryTableViewCell: UITableViewCell {
     override var reuseIdentifier: String? {
         return "GalleryTableViewCell"
     }
+
+    func setConstraints() {
+
+        NSLayoutConstraint.activate([
+            galeryCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            galeryCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            galeryCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            galeryCollectionView.heightAnchor.constraint(equalToConstant: 200),
+            galeryCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+        ])
+    }
 }
 
 extension GalleryTableViewCell: UICollectionViewDelegate,
@@ -54,7 +58,8 @@ extension GalleryTableViewCell: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
-    // swiftlint:disable line_length
+// swiftlint:disable line_length
+
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell
@@ -62,7 +67,9 @@ extension GalleryTableViewCell: UICollectionViewDelegate,
         cell.cellConfig(image: images[indexPath.row])
         return cell
     }
+
 // swiftlint:enable line_length
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

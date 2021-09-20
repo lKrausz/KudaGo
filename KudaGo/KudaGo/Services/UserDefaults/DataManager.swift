@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//MARK: Менеджер работы с UserDefaults
+// MARK: Менеджер работы с UserDefaults
 class DataManager {
     static let shared = DataManager()
 
@@ -24,6 +24,7 @@ class DataManager {
 
     func setLocation(location: String) {
         UserDefaults.standard.set(location, forKey: "UserLocation")
+        NotificationCenter.default.post(name: Notification.Name("SettingsUpdate"), object: nil)
     }
 
     func getCatedories() -> String {
@@ -32,5 +33,6 @@ class DataManager {
 
     func setCategories(categories: String) {
         UserDefaults.standard.set(categories, forKey: "UserCategories")
+        NotificationCenter.default.post(name: Notification.Name("SettingsUpdate"), object: nil)
     }
 }

@@ -85,7 +85,7 @@ class EventModel {
             return imageArray
         }()
     }
-    
+
     // MARK: Init for core data entity
     init(data: EventEntity) {
         self.id = data.id

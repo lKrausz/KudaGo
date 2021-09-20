@@ -31,15 +31,8 @@ class EventsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating()
-
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: Notification.Name("SettingsUpdate"), object: nil)
+        showAlert()
 
         view.addSubview(tableView)
 
@@ -60,33 +53,47 @@ class EventsViewController: UIViewController {
         }
     }
 
-    func fetchData() {
-            NetworkManager.shared.getEvents(page: self.page,
-                                            pageSize: self.pageSize,
-                                            completion: { [weak self] data, error in
-                                                guard let self = self else { return }
-                                                if let error = error {
-                                                    print(error)
-                                                }
-                                                if let data = data {
-                                                    self.data += data
-                                                    self.page += 1
-                                                    if self.data.count == data.count {
-                                                        self.isGetAllRequestData = true
-                                                    }
-                                                    DispatchQueue.main.async {
-                                                        self.dismiss(animated: false, completion: nil)
+    @objc func reloadData() {
+        self.page = 1
+        self.isGetAllRequestData = false
+        self.data.removeAll()
+        fetchData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 
-                                                        self.tableView.reloadData()
-                                                    }
-                                                }
-                                            })
-        // TODO: удалить или придумать как сделать шоб работал плейсхолдер
-        //        if self.data.count == 0 {
-        //            self.placeholderView.alpha = 1
-        //        } else {
-        //            self.placeholderView.alpha = 0
-        //        }
+    func fetchData() {
+            NetworkManager.shared.getEvents(page: self.page, pageSize: self.pageSize, completion: {
+                [weak self] data, error in
+                guard let self = self else { return }
+                    if let error = error {
+                        print(error)
+                    }
+                    if let data = data {
+                        self.data += data
+                        self.page += 1
+                        if self.data.count == data.count {
+                            self.isGetAllRequestData = true
+                        }
+                        DispatchQueue.main.async {
+                            self.dismiss(animated: false, completion: nil)
+                            self.tableView.reloadData()
+                        }
+            }
+        })
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating()
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -100,13 +107,16 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return data.count
     }
+
 // swiftlint:disable line_length
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found") }
         let event = EventModel(data: self.data[indexPath.row])
         cell.cellConfig(data: event, indexPath: indexPath)
         return cell
     }
+
 // swiftlint:enable line_length
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

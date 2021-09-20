@@ -24,12 +24,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         backgroundColor = .gray
         contentView.addSubview(imageView)
 
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-        ])
+        setConstraints()
 
         NetworkManager.shared.getImage(from: URL(string: image)!) { data, _, error in
             guard let data = data, error == nil else { return }
@@ -39,5 +34,14 @@ class ImageCollectionViewCell: UICollectionViewCell {
         }
         layer.cornerRadius = 35
         clipsToBounds = true
+    }
+
+    func setConstraints() {
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
     }
 }

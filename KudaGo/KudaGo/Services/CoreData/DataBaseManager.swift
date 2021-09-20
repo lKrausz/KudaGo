@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-//MARK: Менеджер работы с Core Data
+// MARK: Менеджер работы с Core Data
 class DataBaseManager {
     static let shared = DataBaseManager()
 

@@ -48,12 +48,15 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         settings.count
     }
+
 // swiftlint:disable line_length
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { preconditionFailure("Cell type not found") }
         cell.cellConfig(setting: settings[indexPath.row].rawValue)
         return cell
     }
+
 // swiftlint:enable line_length
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

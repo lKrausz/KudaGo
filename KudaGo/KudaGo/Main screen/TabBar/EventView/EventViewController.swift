@@ -86,6 +86,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         return tableContent.count
     }
 // swiftlint:disable line_length
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let type: CellContentType = CellContentType(rawValue: indexPath.row)!
 
@@ -130,6 +131,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
 // swiftlint:enable line_length
 
 extension EventViewController: TextTableViewCellDelegate {

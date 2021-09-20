@@ -10,7 +10,7 @@ import UIKit
 protocol EventTableViewCellProtocol: AnyObject {
     func reloadTableView()
 }
-
+// MARK: Ячейка события
 class EventTableViewCell: UITableViewCell {
 
     var eventId = 0
@@ -66,6 +66,7 @@ class EventTableViewCell: UITableViewCell {
     func cellConfig(data: EventModel, indexPath: IndexPath) {
         self.indexPath = indexPath
         self.eventId = Int(data.id)
+
         let imagePath: NSString = data.images[0] as NSString
         if let cachedImage = self.cache.object(forKey: imagePath) {
             DispatchQueue.main.async { [weak self] in
@@ -92,13 +93,11 @@ class EventTableViewCell: UITableViewCell {
         contentView.addSubview(priceLabel)
         contentView.addSubview(dateLabel)
         eventImage.addSubview(bookmarkButton)
-
         setConstraints()
     }
 
     @objc func addBookmark(sender: BookmarkButton!) {
         bookmarkButton.changeState()
-        // TODO:тут труп апы если удалять с евент экрана шопроисходит 
         if DataBaseManager.shared.isInDataBase(eventID: eventId) {
             let removeEvent = DataBaseManager.shared.fetchedResultsController.object(at: indexPath)
             DataBaseManager.shared.context().delete(removeEvent)

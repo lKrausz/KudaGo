@@ -20,7 +20,7 @@ class BookmarkViewController: UIViewController {
         tableView.backgroundColor = .clear
         return tableView
     }()
-    
+
     let placeholderView = EventPlaceholderView(text: "Сохраненных событий нет")
 
     override func viewDidLoad() {
@@ -58,7 +58,9 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return sectionInfo.numberOfObjects
     }
+
 // swiftlint:disable line_length
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found") }
         let event = EventModel(data: DataBaseManager.shared.fetchedResultsController.object(at: indexPath))
@@ -67,6 +69,7 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
 
         return cell
     }
+
 // swiftlint:enable line_length
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

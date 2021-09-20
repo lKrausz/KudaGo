@@ -17,7 +17,7 @@ class EventPlaceholderView: UIView {
     }()
 
     lazy var label: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = ""
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -27,14 +27,13 @@ class EventPlaceholderView: UIView {
 
     init(text: String) {
         super.init(frame: CGRect(x: 0,
-                                      y: 0,
-                                      width: UIScreen.main.bounds.width,
-                                      height: UIScreen.main.bounds.height))
+                                 y: 0,
+                                 width: UIScreen.main.bounds.width,
+                                 height: UIScreen.main.bounds.height))
         label.text = text
         addSubview(imageView)
         backgroundColor = .white
         addSubview(label)
-
         setConstraints()
     }
 
