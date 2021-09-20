@@ -25,10 +25,10 @@ class SettingsViewController: UIViewController {
         return tableView
     }()
 
-    // TODO: UserDefaults + Settings
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
         setConstraints()
     }
@@ -56,7 +56,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(OnbViewController(type: settings[indexPath.row], isOnboarding: false), animated: true)
+        let viewController = SettingViewController(type: settings[indexPath.row], isOnboarding: false)
+        navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

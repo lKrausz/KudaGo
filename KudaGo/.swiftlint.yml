@@ -89,10 +89,5 @@ custom_rules:
     regex: "\\s*func\\s+(\\/|-|\\+|!|\\*|%|&|\\||\\^|~|\\?)"
     message: "Перегрузка операторов запрещена"
     severity: error
-  operator_declaration:
-    included: ".*\\.swift"
-    name: "Operator Declaration"
-    regex: "(infix|postfix|prefix)\\s+operator"
-    message: "Объявление оператора запрещено вне MPFoundation.framework"
-    severity: error
+
 

@@ -37,11 +37,10 @@ class BookmarkViewController: UIViewController {
         ])
         DataBaseManager.shared.loadData()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         reloadTableView()
     }
-    
 }
 
 extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
@@ -72,6 +71,8 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == (sectionInfo.numberOfObjects - 5) {
             DataBaseManager.shared.loadData()
         }
+        guard let currentCell = cell as? EventTableViewCell else { preconditionFailure("Cell type not found") }
+        currentCell.bookmarkButton.setState(state: true)
     }
 }
 

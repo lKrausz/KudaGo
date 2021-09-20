@@ -17,6 +17,9 @@ class EventTableViewCell: UITableViewCell {
     var indexPath: IndexPath = []
     weak var delegate: EventTableViewCellProtocol?
 
+    private let cache = NSCache<NSString, UIImage>()
+    private let utilityQueue = DispatchQueue.global(qos: .utility)
+
     lazy var eventImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -63,13 +66,23 @@ class EventTableViewCell: UITableViewCell {
     func cellConfig(data: EventModel, indexPath: IndexPath) {
         self.indexPath = indexPath
         self.eventId = Int(data.id)
-        let url = URL(string: data.images[0])!
-        NetworkManager.shared.getImage(from: url) { data, _, error in
-            guard let data = data, error == nil else { return }
+        let imagePath: NSString = data.images[0] as NSString
+        if let cachedImage = self.cache.object(forKey: imagePath) {
             DispatchQueue.main.async { [weak self] in
-                self?.eventImage.image = UIImage(data: data)
+                self?.eventImage.image = cachedImage
+            }
+        } else {
+            let url = URL(string: data.images[0])!
+            NetworkManager.shared.getImage(from: url) { data, _, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async { [weak self] in
+                    let image = UIImage(data: data)!
+                    self?.eventImage.image = image
+                    self?.cache.setObject(image, forKey: imagePath)
+                }
             }
         }
+
         titleLabel.text = data.title
         priceLabel.text = data.price
         dateLabel.text = data.dates
@@ -85,7 +98,8 @@ class EventTableViewCell: UITableViewCell {
 
     @objc func addBookmark(sender: BookmarkButton!) {
         bookmarkButton.changeState()
-        if (DataBaseManager.shared.isInDataBase(eventID: eventId)) {
+        // TODO:тут труп апы если удалять с евент экрана шопроисходит 
+        if DataBaseManager.shared.isInDataBase(eventID: eventId) {
             let removeEvent = DataBaseManager.shared.fetchedResultsController.object(at: indexPath)
             DataBaseManager.shared.context().delete(removeEvent)
             DataBaseManager.shared.saveContext()
@@ -140,6 +154,7 @@ class EventTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
         self.eventImage.image = nil
         self.bookmarkButton.setState(state: false)
     }

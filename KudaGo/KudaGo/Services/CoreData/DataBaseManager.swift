@@ -11,7 +11,7 @@ import CoreData
 class DataBaseManager {
     static let shared = DataBaseManager()
 
-    var fetchedResultsController: NSFetchedResultsController<EventDescription>!
+    var fetchedResultsController: NSFetchedResultsController<EventEntity>!
 
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "KudaGo")
@@ -42,7 +42,7 @@ class DataBaseManager {
     func loadData() {
         if fetchedResultsController == nil {
 
-            let request = EventDescription.fetchRequest() as NSFetchRequest<EventDescription>
+            let request = EventEntity.fetchRequest() as NSFetchRequest<EventEntity>
             request.sortDescriptors = []
 
             fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
@@ -61,7 +61,7 @@ class DataBaseManager {
     }
 
     func addElement(element: EventModel) {
-        let newBookmark = EventDescription(context: DataBaseManager.shared.context())
+        let newBookmark = EventEntity(context: DataBaseManager.shared.context())
 
         newBookmark.id = Int32(element.id)
         newBookmark.dates = element.dates
@@ -77,7 +77,7 @@ class DataBaseManager {
     }
 
     func isInDataBase(eventID: Int) -> Bool {
-        let request = EventDescription.fetchRequest() as NSFetchRequest<EventDescription>
+        let request = EventEntity.fetchRequest() as NSFetchRequest<EventEntity>
 
         let idPredicate = NSPredicate(format: "id LIKE %@", "\(eventID)")
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [idPredicate])

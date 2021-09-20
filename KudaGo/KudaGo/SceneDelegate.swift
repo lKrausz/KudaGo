@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         if DataManager.shared.getIsNewUserStatus() {
-            let viewController = OnbViewController(type: .location, isOnboarding: true)
+            let viewController = SettingViewController(type: .location, isOnboarding: true)
             let navController = UINavigationController(rootViewController: viewController)
             window?.rootViewController = navController
         } else {

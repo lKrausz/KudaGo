@@ -58,7 +58,7 @@ extension KudaGoAPI: EndPointType {
         case .event:
             return .requestParams(bodyParams: nil,
                                   urlParams: ["lang": "ru",
-                                              "fields": "id,dates,title,body_text,age_restriction,price,images,site_url,place",
+                                              "fields": "id,dates,title,body_text,price,images,site_url,place",
                                               "expand": "place,dates",
                                               "text_format": "plain"
                                   ])

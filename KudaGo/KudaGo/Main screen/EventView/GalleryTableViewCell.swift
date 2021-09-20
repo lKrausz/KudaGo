@@ -46,7 +46,6 @@ class GalleryTableViewCell: UITableViewCell {
     override var reuseIdentifier: String? {
         return "GalleryTableViewCell"
     }
-
 }
 
 extension GalleryTableViewCell: UICollectionViewDelegate,

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class OnbTableViewCell: UITableViewCell {
+class SettingTableViewCell: UITableViewCell {
+
+    var isOnboarding = false
 
     lazy var label: UILabel = {
         let label = UILabel()
@@ -27,8 +29,9 @@ class OnbTableViewCell: UITableViewCell {
         return view
     }()
 
-    func cellConfig(labelContent: String?) {
+    func cellConfig(labelContent: String?, isOnboarding: Bool) {
         self.label.text = labelContent
+        self.isOnboarding = isOnboarding
         contentView.addSubview(view)
         view.addSubview(label)
         self.backgroundColor = .clear
@@ -56,16 +59,23 @@ class OnbTableViewCell: UITableViewCell {
     }
 
     override var reuseIdentifier: String? {
-        return "OnbTableViewCell"
+        return "SettingTableViewCell"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        if selected {
-            contentView.alpha = 1
+        if isOnboarding {
+            if selected {
+                contentView.alpha = 1
+            } else {
+                contentView.alpha = 0.75
+            }
         } else {
-            contentView.alpha = 0.75
+            if selected {
+                view.backgroundColor = .systemGray4
+            } else {
+                view.backgroundColor = .white
+            }
         }
     }
 }

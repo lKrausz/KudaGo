@@ -44,7 +44,6 @@ class TextTableViewCell: UITableViewCell {
         ])
         self.titleLabel.text = label
     }
-
 }
 
 extension TextTableViewCell: UITextViewDelegate {

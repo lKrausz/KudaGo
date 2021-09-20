@@ -6,5 +6,8 @@ target 'KudaGo' do
   use_frameworks!
 
   pod 'SwiftLint'
-
+  
+    target 'KudaGoTests' do
+      pod 'SnapshotTesting', '~> 1.9.0'
+    end
 end

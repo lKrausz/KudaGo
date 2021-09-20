@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="EventDescription" representedClassName="EventDescription" syncable="YES">
+    <entity name="EventEntity" representedClassName="EventEntity" syncable="YES">
         <attribute name="dates" attributeType="String"/>
         <attribute name="eventDesc" attributeType="String"/>
         <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES"/>
-        <attribute name="images" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="images" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
         <attribute name="place" attributeType="String"/>
         <attribute name="price" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="url" attributeType="String"/>
     </entity>
     <elements>
-        <element name="EventDescription" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="EventEntity" positionX="160" positionY="192" width="128" height="149"/>
     </elements>
 </model>

@@ -57,7 +57,7 @@ class EventViewController: UIViewController {
     }
 
     @IBAction private func addBookmark(_ sender: Any) {
-        if (!DataBaseManager.shared.isInDataBase(eventID: Int(data.id))) {
+        if !DataBaseManager.shared.isInDataBase(eventID: Int(data.id)) {
             NetworkManager.shared.getEvent(eventId: Int(data.id), completion: { data, error in
                 if let error = error {
                     print(error)

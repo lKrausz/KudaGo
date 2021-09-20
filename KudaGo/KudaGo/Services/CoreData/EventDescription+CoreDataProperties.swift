@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-extension EventDescription {
+extension EventEntity {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<EventDescription> {
-        return NSFetchRequest<EventDescription>(entityName: "EventDescription")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<EventEntity> {
+        return NSFetchRequest<EventEntity>(entityName: "EventEntity")
     }
 
     @NSManaged public var dates: String
@@ -26,6 +26,6 @@ extension EventDescription {
 
 }
 
-extension EventDescription: Identifiable {
+extension EventEntity: Identifiable {
 
 }

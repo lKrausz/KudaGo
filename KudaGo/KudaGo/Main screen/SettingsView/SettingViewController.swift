@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnbViewController: UIViewController {
+class SettingViewController: UIViewController {
 
     var categories: Set<String> = []
     let currentType: SettingsType
@@ -15,7 +15,7 @@ class OnbViewController: UIViewController {
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(OnbTableViewCell.self, forCellReuseIdentifier: "OnbTableViewCell")
+        tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: "SettingTableViewCell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self
@@ -67,19 +67,10 @@ class OnbViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        
+        view.backgroundColor = .white
         if isOnboarding {
-            let backgroundImage = UIImageView(frame: CGRect(x: 0,
-                                                            y: 0,
-                                                            width: view.bounds.width,
-                                                            height: view.bounds.height))
-            backgroundImage.image = UIImage(named: "onbBG")
-            backgroundImage.clipsToBounds = false
-            backgroundImage.alpha = 0.9
-            view.addSubview(backgroundImage)
+            setBG()
         }
-
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -87,7 +78,6 @@ class OnbViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
-
         setConstraints()
         switch self.currentType {
 
@@ -126,6 +116,17 @@ class OnbViewController: UIViewController {
         }
     }
 
+    func setBG() {
+        let backgroundImage = UIImageView(frame: CGRect(x: 0,
+                                                        y: 0,
+                                                        width: view.bounds.width,
+                                                        height: view.bounds.height))
+        backgroundImage.image = UIImage(named: "onbBG")
+        backgroundImage.clipsToBounds = false
+        backgroundImage.alpha = 0.9
+        view.addSubview(backgroundImage)
+    }
+
     func setConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -157,7 +158,9 @@ class OnbViewController: UIViewController {
 
     @objc func buttonAction(sender: UIButton!) {
         // TODO: add animations
-        let categoriesString: String = {
+        var categoriesString: String = ""
+        if !self.categories.isEmpty {
+        categoriesString = {
             var string = ""
             for category in self.categories {
                 string += category + ","
@@ -165,6 +168,7 @@ class OnbViewController: UIViewController {
             string.removeLast()
             return string
         }()
+        }
         DataManager.shared.setCategories(categories: categoriesString)
         DataManager.shared.setIsNewUserStatus()
         UIApplication.shared.windows.first?.rootViewController = TabBarController()
@@ -173,15 +177,15 @@ class OnbViewController: UIViewController {
 
 }
 
-extension OnbViewController: UITableViewDataSource, UITableViewDelegate {
+extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OnbTableViewCell", for: indexPath) as? OnbTableViewCell else { preconditionFailure("Cell type not found") }
-        cell.cellConfig(labelContent: self.data[indexPath.row].name)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else { preconditionFailure("Cell type not found") }
+        cell.cellConfig(labelContent: self.data[indexPath.row].name, isOnboarding: isOnboarding)
         return cell
     }
 
@@ -189,7 +193,7 @@ extension OnbViewController: UITableViewDataSource, UITableViewDelegate {
         if currentType == .location {
             DataManager.shared.setLocation(location: data[indexPath.row].slug)
             if isOnboarding {
-                let captureViewCon = OnbViewController(type: .eventCategories, isOnboarding: isOnboarding)
+                let captureViewCon = SettingViewController(type: .eventCategories, isOnboarding: isOnboarding)
                 self.navigationController?.pushViewController(captureViewCon, animated: true)
             } else {
                 self.navigationController?.popViewController(animated: true)

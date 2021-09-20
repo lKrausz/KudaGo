@@ -10,6 +10,7 @@ struct OnboardingApiResponse: Decodable {
 }
 
 struct EventsApiResponse: Decodable {
+    let count: Int
     let results: [Event]
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(EventDescription)
-public class EventDescription: NSManagedObject {
+@objc(EventEntity)
+public class EventEntity: NSManagedObject {
 
 }

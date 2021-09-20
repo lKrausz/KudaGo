@@ -5,8 +5,9 @@
 //  Created by Виктория Козырева on 17.09.2021.
 //
 
-import Foundation
-
+import UIKit
+// Общая модель для работы приложения.
+// После получения данных из сети/Core data, результат переводится в эту модель.
 class EventModel {
     let id: Int32
     let dates: String
@@ -16,8 +17,10 @@ class EventModel {
     let eventDescription: String?
     let url: String?
     let place: String?
+    
+    
 
-    // init for network full data model
+    // MARK: Init for network full data model
     init(data: EventFullDesc) {
         self.id = data.eventId
         self.dates = {
@@ -48,11 +51,11 @@ class EventModel {
                 imageArray.append(image.image)
             }
             return imageArray
-        }()
+            }()
     }
 
-    // init for core data entity
-    init(data: EventDescription) {
+    // MARK: Init for core data entity
+    init(data: EventEntity) {
         self.id = data.id
         self.dates = data.dates
         self.title = data.title
@@ -63,7 +66,7 @@ class EventModel {
         self.place = data.place
     }
 
-    // init fore network short data model
+    // MARK: Init fore network short data model
     init(data: Event) {
         self.id = data.id
         self.dates = {
