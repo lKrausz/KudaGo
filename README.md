@@ -38,6 +38,7 @@ Deployment Target: iOS 13
 Архитектура: MVC
 Верстка: код, без xib, storyboards
 Стиль написания кода: Sberbank SwiftLint configuration
+Внешние библиотеки: SwiftLint, ShapShotTest. Добавлены при помощи cocoapods.
 
 ## UI, экраны ##
 
@@ -83,4 +84,4 @@ Deployment Target: iOS 13
 ## Тестирование ##
 
 Написаны UI-тесты для проверки существования элементов, например, картинок на странице детализации события.
-При помощи библиотеки 
+При помощи библиотеки SnapShotTesting были сделаны ShapShot тесты для IPhone SE 2. 
