@@ -59,6 +59,7 @@ class EventsViewController: UIViewController {
         self.page = 1
         self.isGetAllRequestData = false
         self.data.removeAll()
+        showAlert()
         fetchData()
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -69,8 +70,8 @@ class EventsViewController: UIViewController {
             NetworkManager.shared.getEvents(page: self.page, pageSize: self.pageSize, completion: {
                 [weak self] data, error in
                 guard let self = self else { return }
-                    if let error = error {
-                        print(error)
+                    if error != nil {
+                        return
                     }
                     if let data = data {
                         self.data += data
@@ -87,7 +88,7 @@ class EventsViewController: UIViewController {
     }
 
     func showAlert() {
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "Загрузка...", preferredStyle: .alert)
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -125,8 +126,8 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
         let eventID = Int(data[indexPath.row].eventId)
         NetworkManager.shared.getEvent(eventId: eventID, completion: { [weak self] data, error in
             guard let self = self else { return }
-            if let error = error {
-                print(error)
+            if error != nil {
+                return
             }
             if let data = data {
                 let eventData = EventModel(data: data)

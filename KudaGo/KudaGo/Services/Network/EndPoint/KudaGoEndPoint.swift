@@ -43,7 +43,7 @@ extension KudaGoAPI: EndPointType {
         case .eventCategories:
             return .requestParams(bodyParams: nil,
                                   urlParams: ["lang": "ru"])
-        case .eventList(let page, let pageSize):
+        case let .eventList(page, pageSize):
             return .requestParams(bodyParams: nil,
                                   urlParams: ["lang": "ru",
                                               "page": page,

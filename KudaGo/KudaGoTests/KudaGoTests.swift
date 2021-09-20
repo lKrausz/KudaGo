@@ -10,6 +10,6 @@ import XCTest
 class KudaGoTests: XCTestCase {
 
     func test() throws {
-        
+
     }
 }

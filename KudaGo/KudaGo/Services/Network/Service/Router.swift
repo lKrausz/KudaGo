@@ -31,7 +31,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             switch route.task {
             case .request:
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            case .requestParams(let bodyParams, let urlParams):
+            case let .requestParams(bodyParams, urlParams):
                 try self.configureParameters(bodyParams: bodyParams, urlParams: urlParams, request: &request)
             }
             return request

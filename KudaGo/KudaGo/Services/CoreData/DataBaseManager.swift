@@ -54,24 +54,24 @@ class DataBaseManager {
         do {
             try fetchedResultsController.performFetch()
         } catch {
-            print("Fetch failed")
+            return
         }
         DispatchQueue.main.async {
            // self.tableView.reloadData()
         }
     }
 
-    func addElement(element: EventModel) {
+    func addEvent(event: EventModel) {
         let newBookmark = EventEntity(context: DataBaseManager.shared.context())
 
-        newBookmark.id = Int32(element.id)
-        newBookmark.dates = element.dates
-        newBookmark.eventDesc = element.eventDescription
-        newBookmark.images = element.images
-        newBookmark.place = element.place
-        newBookmark.title = element.title
-        newBookmark.url = element.url
-        newBookmark.price = element.price
+        newBookmark.id = Int32(event.id)
+        newBookmark.dates = event.dates
+        newBookmark.eventDesc = event.eventDescription
+        newBookmark.images = event.images
+        newBookmark.place = event.place
+        newBookmark.title = event.title
+        newBookmark.url = event.url
+        newBookmark.price = event.price
 
         DataBaseManager.shared.saveContext()
         DataBaseManager.shared.loadData()
@@ -94,10 +94,11 @@ class DataBaseManager {
         }
     }
 
-    func deleteItem(index: IndexPath) {
+    func deleteEvent(index: IndexPath) {
         let removeTask = self.fetchedResultsController.object(at: index)
         DataBaseManager.shared.context().delete(removeTask)
         DataBaseManager.shared.saveContext()
         self.loadData()
     }
+
 }

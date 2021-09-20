@@ -86,8 +86,8 @@ class SettingViewController: UIViewController {
             titleLabel.text = "О событиях в каком городе вы бы хотели узнавать?"
             NetworkManager.shared.getLocations(completion: { [weak self] data, error in
                 guard let self = self else { return }
-                if let error = error {
-                    print(error)
+                if error != nil {
+                    return
                 }
                 if let data = data {
                     self.data = data
@@ -103,8 +103,8 @@ class SettingViewController: UIViewController {
             self.tableView.allowsMultipleSelectionDuringEditing = true
             NetworkManager.shared.getEventCategories(completion: { [weak self] data, error in
                 guard let self = self else { return }
-                if let error = error {
-                    print(error)
+                if error != nil {
+                    return
                 }
                 if let data = data {
                     self.data = data
@@ -170,7 +170,6 @@ class SettingViewController: UIViewController {
             return string
         }()
         }
-        DataManager.shared.setCategories(categories: categoriesString)
         if isOnboarding {
             DataManager.shared.setIsNewUserStatus()
             UIApplication.shared.windows.first?.rootViewController = TabBarController()
@@ -178,8 +177,8 @@ class SettingViewController: UIViewController {
         } else {
             self.navigationController?.popViewController(animated: true)
         }
+        DataManager.shared.setCategories(categories: categoriesString)
     }
-
 }
 
 extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
@@ -200,13 +199,13 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if currentType == .location {
-            DataManager.shared.setLocation(location: data[indexPath.row].slug)
             if isOnboarding {
                 let captureViewCon = SettingViewController(type: .eventCategories, isOnboarding: isOnboarding)
                 self.navigationController?.pushViewController(captureViewCon, animated: true)
             } else {
                 self.navigationController?.popViewController(animated: true)
             }
+            DataManager.shared.setLocation(location: data[indexPath.row].slug)
         } else {
             self.categories.insert(data[indexPath.row].slug)
         }

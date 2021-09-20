@@ -63,20 +63,25 @@ class EventTableViewCell: UITableViewCell {
     func cellConfig(data: EventModel, indexPath: IndexPath) {
         self.indexPath = indexPath
         self.eventId = Int(data.id)
+        let imageURL = data.images[0]
+        let imagePath: NSString = imageURL as NSString
 
-        let imagePath: NSString = data.images[0] as NSString
         if let cachedImage = NSCacheManager.shared.cache.object(forKey: imagePath) {
             DispatchQueue.main.async { [weak self] in
                 self?.eventImage.image = cachedImage
             }
         } else {
-            let url = URL(string: data.images[0])!
+            let url = URL(string: imageURL)!
             NetworkManager.shared.getImage(from: url) { data, _, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async { [weak self] in
+                if error != nil {
+                    return
+                }
+                if let data = data {
+                    DispatchQueue.main.async { [weak self] in
                     let image = UIImage(data: data)!
                     self?.eventImage.image = image
                     NSCacheManager.shared.cache.setObject(image, forKey: imagePath)
+                    }
                 }
             }
         }
@@ -96,18 +101,15 @@ class EventTableViewCell: UITableViewCell {
     @objc func addBookmark(sender: BookmarkButton!) {
         bookmarkButton.changeState()
         if DataBaseManager.shared.isInDataBase(eventID: eventId) {
-            let removeEvent = DataBaseManager.shared.fetchedResultsController.object(at: indexPath)
-            DataBaseManager.shared.context().delete(removeEvent)
-            DataBaseManager.shared.saveContext()
-            DataBaseManager.shared.loadData()
+            DataBaseManager.shared.deleteEvent(index: indexPath)
         } else {
             NetworkManager.shared.getEvent(eventId: Int(eventId), completion: { data, error in
-                if let error = error {
-                    print(error)
+                if error != nil {
+                    return
                 }
                 if let data = data {
                     let eventData = EventModel(data: data)
-                    DataBaseManager.shared.addElement(element: eventData)
+                    DataBaseManager.shared.addEvent(event: eventData)
                 }
             })
         }
@@ -154,5 +156,4 @@ class EventTableViewCell: UITableViewCell {
         self.eventImage.image = nil
         self.bookmarkButton.setState(state: false)
     }
-
 }
