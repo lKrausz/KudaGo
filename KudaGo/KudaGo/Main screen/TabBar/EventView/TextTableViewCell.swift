@@ -31,7 +31,7 @@ class TextTableViewCell: UITableViewCell {
     override var reuseIdentifier: String? {
         return "TextTableViewCell"
     }
-
+// MARK: функция для конфигурации ячейки
     func cellConfig(label: String) {
         contentView.addSubview(titleLabel)
         self.selectionStyle = .none

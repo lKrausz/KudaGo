@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: FlowLayout для плавного скролла изображений в галерее и их центрирования
 class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     var mostRecentOffset: CGPoint = CGPoint()

@@ -17,9 +17,6 @@ class EventTableViewCell: UITableViewCell {
     var indexPath: IndexPath = []
     weak var delegate: EventTableViewCellProtocol?
 
-    private let cache = NSCache<NSString, UIImage>()
-    private let utilityQueue = DispatchQueue.global(qos: .utility)
-
     lazy var eventImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -62,13 +59,13 @@ class EventTableViewCell: UITableViewCell {
     override var reuseIdentifier: String? {
         return "EventTableViewCell"
     }
-
+// MARK: функция для конфигурации ячейки 
     func cellConfig(data: EventModel, indexPath: IndexPath) {
         self.indexPath = indexPath
         self.eventId = Int(data.id)
 
         let imagePath: NSString = data.images[0] as NSString
-        if let cachedImage = self.cache.object(forKey: imagePath) {
+        if let cachedImage = NSCacheManager.shared.cache.object(forKey: imagePath) {
             DispatchQueue.main.async { [weak self] in
                 self?.eventImage.image = cachedImage
             }
@@ -79,7 +76,7 @@ class EventTableViewCell: UITableViewCell {
                 DispatchQueue.main.async { [weak self] in
                     let image = UIImage(data: data)!
                     self?.eventImage.image = image
-                    self?.cache.setObject(image, forKey: imagePath)
+                    NSCacheManager.shared.cache.setObject(image, forKey: imagePath)
                 }
             }
         }

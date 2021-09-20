@@ -59,6 +59,9 @@
 		316FD50826F4CCF200863E53 /* EventDescription+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */; };
 		316FD50926F4CCF200863E53 /* EventDescription+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */; };
 		316FD51026F7058900863E53 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50F26F7058900863E53 /* BookmarkButton.swift */; };
+		319309CA26F8F07800A34BE2 /* NSCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319309C926F8F07800A34BE2 /* NSCacheManager.swift */; };
+		319309CD26F905B300A34BE2 /* PageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319309CC26F905B300A34BE2 /* PageObjectTests.swift */; };
+		319309CE26F90A5200A34BE2 /* NSCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319309C926F8F07800A34BE2 /* NSCacheManager.swift */; };
 		31A4CB1826824539006A9A13 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1726824539006A9A13 /* SettingViewController.swift */; };
 		31A4CB1C2682502E006A9A13 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1B2682502E006A9A13 /* SettingTableViewCell.swift */; };
 		31B5554D268243E10052980F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5554C268243E10052980F /* DataManager.swift */; };
@@ -122,6 +125,8 @@
 		316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventDescription+CoreDataClass.swift"; sourceTree = "<group>"; };
 		316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventDescription+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		316FD50F26F7058900863E53 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
+		319309C926F8F07800A34BE2 /* NSCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCacheManager.swift; sourceTree = "<group>"; };
+		319309CC26F905B300A34BE2 /* PageObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageObjectTests.swift; sourceTree = "<group>"; };
 		31A4CB1726824539006A9A13 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		31A4CB1B2682502E006A9A13 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		31B5554C268243E10052980F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -206,6 +211,7 @@
 			children = (
 				31058DBF26EA690000181455 /* EventViewController.swift */,
 				316FD4EB26F1E4AB00863E53 /* GalleryTableViewCell.swift */,
+				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
 				313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */,
 				313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */,
 			);
@@ -253,6 +259,7 @@
 		316FD50B26F510EA00863E53 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				319309CB26F8F2E300A34BE2 /* NSCache */,
 				316FD50C26F5116400863E53 /* UserDefaults */,
 				316FD50126F4850100863E53 /* CoreData */,
 				31CA03E326B0718100DB032D /* Network */,
@@ -281,7 +288,6 @@
 			children = (
 				31058DC526EAA04F00181455 /* TabBarController.swift */,
 				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
-				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
 				316FD4F426F3035800863E53 /* EventPlaceholderView.swift */,
 				316FD50F26F7058900863E53 /* BookmarkButton.swift */,
 				316FD4EF26F1E4C900863E53 /* EventView */,
@@ -290,6 +296,14 @@
 				316FD4F026F2452500863E53 /* SettingsView */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		319309CB26F8F2E300A34BE2 /* NSCache */ = {
+			isa = PBXGroup;
+			children = (
+				319309C926F8F07800A34BE2 /* NSCacheManager.swift */,
+			);
+			path = NSCache;
 			sourceTree = "<group>";
 		};
 		31CA03E326B0718100DB032D /* Network */ = {
@@ -401,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				31DBF0F02680DA40006BC9E0 /* KudaGoUITests.swift */,
+				319309CC26F905B300A34BE2 /* PageObjectTests.swift */,
 				31DBF0F22680DA40006BC9E0 /* Info.plist */,
 			);
 			path = KudaGoUITests;
@@ -640,6 +655,7 @@
 				316FD4F226F2454300863E53 /* SettingsTableViewCell.swift in Sources */,
 				31058DCA26EAB82B00181455 /* EventTableViewCell.swift in Sources */,
 				316FD50926F4CCF200863E53 /* EventDescription+CoreDataProperties.swift in Sources */,
+				319309CA26F8F07800A34BE2 /* NSCacheManager.swift in Sources */,
 				31DBF0CC2680DA3F006BC9E0 /* AppDelegate.swift in Sources */,
 				31CA03FD26B074A300DB032D /* Router.swift in Sources */,
 				31CA03FF26B074B800DB032D /* URLParameterEncoder.swift in Sources */,
@@ -705,6 +721,7 @@
 				3132503426F76B640050AD93 /* NetworkRouter.swift in Sources */,
 				3132501D26F769CC0050AD93 /* SettingsTableViewCell.swift in Sources */,
 				3132502726F769E30050AD93 /* TabBarController.swift in Sources */,
+				319309CE26F90A5200A34BE2 /* NSCacheManager.swift in Sources */,
 				3132501C26F769CA0050AD93 /* SettingsViewController.swift in Sources */,
 				3132501E26F769CF0050AD93 /* EventsViewController.swift in Sources */,
 			);
@@ -715,6 +732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DBF0F12680DA40006BC9E0 /* KudaGoUITests.swift in Sources */,
+				319309CD26F905B300A34BE2 /* PageObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

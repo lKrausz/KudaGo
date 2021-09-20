@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: Ячейка настроек
 class SettingsTableViewCell: UITableViewCell {
 
     func cellConfig(setting: String) {

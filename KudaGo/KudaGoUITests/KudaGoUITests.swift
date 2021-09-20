@@ -25,19 +25,21 @@ class KudaGoUITests: XCTestCase {
     }
 
     func testIsSettingsForSityExists() throws {
-        sleep(5) // for network request
+        if app.tabBars["Tab Bar"].waitForExistence(timeout: 30) {
         app.tabBars["Tab Bar"].buttons["Настройки"].tap()
         let tablesQuery = app.tables
         tablesQuery.cells.staticTexts["Город"].tap()
         tablesQuery.staticTexts["Санкт-Петербург"].tap()
+        }
     }
 
     func testIsImagesInEventVCExists() throws {
-        sleep(5) // for network request
+        if app.tabBars["Tab Bar"].waitForExistence(timeout: 30) {
         app.tabBars["Tab Bar"].buttons["События"].tap()
         let tablesQuery = app.tables
         tablesQuery.cells.firstMatch.tap()
         let res = tablesQuery.cells.collectionViews.images.firstMatch.exists
         XCTAssertEqual(res, true)
+        }
     }
 }

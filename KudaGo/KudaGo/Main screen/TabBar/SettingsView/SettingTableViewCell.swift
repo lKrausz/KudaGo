@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: Ячейка таблицы вариантов настройки
 class SettingTableViewCell: UITableViewCell {
 
     var isOnboarding = false

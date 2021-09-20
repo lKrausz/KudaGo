@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: Placeholder для случаев, когда нет данных для отображения на экранах событий и избранных событий.
 class EventPlaceholderView: UIView {
 
     lazy var imageView: UIImageView = {

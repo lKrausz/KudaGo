@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: Ячейка для галереи изображений
 class GalleryTableViewCell: UITableViewCell {
 
     var images = [String]()
@@ -64,7 +64,7 @@ extension GalleryTableViewCell: UICollectionViewDelegate,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell
         else { preconditionFailure("Cell type not found") }
-        cell.cellConfig(image: images[indexPath.row])
+        cell.cellConfig(imageURL: images[indexPath.row])
         return cell
     }
 

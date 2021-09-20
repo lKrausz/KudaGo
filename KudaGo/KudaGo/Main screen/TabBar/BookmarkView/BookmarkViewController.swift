@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-
+// MARK: Отвечает за экран избранных событий
 class BookmarkViewController: UIViewController {
 
     lazy var tableView: UITableView = {

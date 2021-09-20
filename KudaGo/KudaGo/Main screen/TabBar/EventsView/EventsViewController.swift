@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-
+// MARK: Отвечает за экран событий
 class EventsViewController: UIViewController {
 
     var page = 1
@@ -31,7 +31,9 @@ class EventsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: Notification.Name("SettingsUpdate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData),
+                                               name: Notification.Name("SettingsUpdate"),
+                                               object: nil)
         showAlert()
 
         view.addSubview(tableView)
@@ -83,7 +85,7 @@ class EventsViewController: UIViewController {
             }
         })
     }
-    
+
     func showAlert() {
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
 

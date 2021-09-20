@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: Отвечает за экран вариантов настройки
 class SettingViewController: UIViewController {
 
     var categories: Set<String> = []

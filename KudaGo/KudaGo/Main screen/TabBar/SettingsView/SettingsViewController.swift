@@ -11,7 +11,7 @@ enum SettingsType: String {
     case location = "Город"
     case eventCategories = "Интересы"
 }
-
+// MARK: Отвечает за экран настроек
 class SettingsViewController: UIViewController {
 
     let settings: [SettingsType] = [.location, .eventCategories]

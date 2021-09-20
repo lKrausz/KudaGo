@@ -17,7 +17,7 @@ enum CellContentType: Int {
     case place
     case url
 }
-
+// MARK: Отвечает за экран детализации события
 class EventViewController: UIViewController {
 
     var data: EventModel

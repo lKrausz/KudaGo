@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// MARK: Ячейка для изображения в галерее изображений
 class ImageCollectionViewCell: UICollectionViewCell {
 
     override var reuseIdentifier: String? {
@@ -20,16 +20,26 @@ class ImageCollectionViewCell: UICollectionViewCell {
         return view
     }()
 
-    func cellConfig(image: String) {
+    func cellConfig(imageURL: String) {
         backgroundColor = .gray
         contentView.addSubview(imageView)
 
         setConstraints()
 
-        NetworkManager.shared.getImage(from: URL(string: image)!) { data, _, error in
-            guard let data = data, error == nil else { return }
+        let imagePath: NSString = imageURL as NSString
+        if let cachedImage = NSCacheManager.shared.cache.object(forKey: imagePath) {
             DispatchQueue.main.async { [weak self] in
-                self?.imageView.image = UIImage(data: data)
+                self?.imageView.image = cachedImage
+            }
+        } else {
+            let url = URL(string: imageURL)!
+            NetworkManager.shared.getImage(from: url) { data, _, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async { [weak self] in
+                    let image = UIImage(data: data)!
+                    self?.imageView.image = image
+                    NSCacheManager.shared.cache.setObject(image, forKey: imagePath)
+                }
             }
         }
         layer.cornerRadius = 35
