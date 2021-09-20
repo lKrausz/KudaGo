@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//MARK: Менеджер работы с UserDefaults
 class DataManager {
     static let shared = DataManager()
 

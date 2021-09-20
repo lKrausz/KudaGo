@@ -90,7 +90,7 @@ struct NetworkManager {
         })
     }
 
-    func getEvents(page: Int, pageSize: Int, completion: @escaping ([Event]?, _ error: String?) -> Void) {
+    func getEvents(page: Int, pageSize: Int, completion: @escaping ([EventShortDescription]?, _ error: String?) -> Void) {
         router.request(.eventList(page: page, pageSize: pageSize), completion: { data, response, error in
             if error != nil {
                 completion(nil, "Check your network connection")
@@ -116,7 +116,7 @@ struct NetworkManager {
         })
     }
 
-    func getEvent(eventId: Int, completion: @escaping (EventFullDesc?, _ error: String?) -> Void) {
+    func getEvent(eventId: Int, completion: @escaping (EventFullDescription?, _ error: String?) -> Void) {
         router.request(.event(eventId: eventId), completion: { data, response, error in
             if error != nil {
                 completion(nil, "Check your network connection")
@@ -130,7 +130,7 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse = try JSONDecoder().decode(EventFullDesc.self, from: responseData)
+                        let apiResponse = try JSONDecoder().decode(EventFullDescription.self, from: responseData)
                         completion(apiResponse, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

@@ -170,9 +170,13 @@ class SettingViewController: UIViewController {
         }()
         }
         DataManager.shared.setCategories(categories: categoriesString)
-        DataManager.shared.setIsNewUserStatus()
-        UIApplication.shared.windows.first?.rootViewController = TabBarController()
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        if isOnboarding {
+            DataManager.shared.setIsNewUserStatus()
+            UIApplication.shared.windows.first?.rootViewController = TabBarController()
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
 }

@@ -20,6 +20,8 @@ class BookmarkViewController: UIViewController {
         tableView.backgroundColor = .clear
         return tableView
     }()
+    
+    let placeholderView = EventPlaceholderView(text: "Сохраненных событий нет")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,7 @@ class BookmarkViewController: UIViewController {
         view.backgroundColor = .white
 
         view.addSubview(tableView)
+        view.addSubview(placeholderView)
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -37,6 +40,7 @@ class BookmarkViewController: UIViewController {
         ])
         DataBaseManager.shared.loadData()
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadTableView()
@@ -47,6 +51,11 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = DataBaseManager.shared.fetchedResultsController.sections![section]
+        if sectionInfo.numberOfObjects == 0 {
+            placeholderView.isHidden = false
+        } else {
+            placeholderView.isHidden = true
+        }
         return sectionInfo.numberOfObjects
     }
 // swiftlint:disable line_length

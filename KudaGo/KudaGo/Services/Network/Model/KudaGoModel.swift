@@ -11,18 +11,40 @@ struct OnboardingApiResponse: Decodable {
 
 struct EventsApiResponse: Decodable {
     let count: Int
-    let results: [Event]
+    let results: [EventShortDescription]
 }
 
-struct Event: Decodable {
-    let id: Int32
+struct EventShortDescription {
+    let eventId: Int32
     let dates: [EventDate]
     let title: String
     let images: [Image]
     let price: String
 }
 
-struct EventFullDesc {
+extension EventShortDescription: Decodable {
+
+    private enum EventCodingKeys: String, CodingKey {
+        case eventId = "id"
+        case dates
+        case title
+        case price
+        case images
+
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: EventCodingKeys.self)
+
+        eventId = try container.decode(Int32.self, forKey: .eventId)
+        dates = try container.decode([EventDate].self, forKey: .dates)
+        title = try container.decode(String.self, forKey: .title)
+        price = try container.decode(String.self, forKey: .price)
+        images = try container.decode([Image].self, forKey: .images)
+    }
+}
+
+struct EventFullDescription {
     let eventId: Int32
     let dates: [EventDate]
     let title: String
@@ -33,7 +55,7 @@ struct EventFullDesc {
     let place: Place?
 }
 
-extension EventFullDesc: Decodable {
+extension EventFullDescription: Decodable {
 
     private enum EventCodingKeys: String, CodingKey {
         case eventId = "id"

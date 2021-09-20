@@ -13,7 +13,7 @@ class EventsViewController: UIViewController {
     var page = 1
     var pageSize = 20
     var isGetAllRequestData = false
-    var data = [Event].init()
+    var data = [EventShortDescription].init()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -43,7 +43,7 @@ class EventsViewController: UIViewController {
 
         view.addSubview(tableView)
 
-        //        view.addSubview(placeholderView)
+        view.addSubview(placeholderView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -53,8 +53,14 @@ class EventsViewController: UIViewController {
         fetchData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
     func fetchData() {
-        if !isGetAllRequestData {
             NetworkManager.shared.getEvents(page: self.page,
                                             pageSize: self.pageSize,
                                             completion: { [weak self] data, error in
@@ -75,7 +81,6 @@ class EventsViewController: UIViewController {
                                                     }
                                                 }
                                             })
-        }
         // TODO: удалить или придумать как сделать шоб работал плейсхолдер
         //        if self.data.count == 0 {
         //            self.placeholderView.alpha = 1
@@ -88,6 +93,11 @@ class EventsViewController: UIViewController {
 extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if data.isEmpty {
+            placeholderView.isHidden = false
+        } else {
+            placeholderView.isHidden = true
+        }
         return data.count
     }
 // swiftlint:disable line_length
@@ -100,7 +110,8 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
 // swiftlint:enable line_length
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NetworkManager.shared.getEvent(eventId: Int(data[indexPath.row].id), completion: { [weak self] data, error in
+        let eventID = Int(data[indexPath.row].eventId)
+        NetworkManager.shared.getEvent(eventId: eventID, completion: { [weak self] data, error in
             guard let self = self else { return }
             if let error = error {
                 print(error)
@@ -118,9 +129,9 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let currentCell = cell as? EventTableViewCell else { preconditionFailure("Cell type not found") }
-        let eventID = Int(data[indexPath.row].id)
+        let eventID = Int(data[indexPath.row].eventId)
         currentCell.bookmarkButton.setState(state: DataBaseManager.shared.isInDataBase(eventID: eventID))
-        if indexPath.row == (data.count - 5) {
+        if indexPath.row == (data.count - 5) && !isGetAllRequestData {
             fetchData()
         }
     }

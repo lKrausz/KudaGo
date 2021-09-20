@@ -19,7 +19,7 @@ class EventModel {
     let place: String?
 
     // MARK: Init for network full data model
-    init(data: EventFullDesc) {
+    init(data: EventFullDescription) {
         self.id = data.eventId
         self.dates = {
             let dataStart = data.dates.last?.startDate ?? ""
@@ -52,21 +52,9 @@ class EventModel {
         }()
     }
 
-    // MARK: Init for core data entity
-    init(data: EventEntity) {
-        self.id = data.id
-        self.dates = data.dates
-        self.title = data.title
-        self.images = data.images
-        self.price = data.price
-        self.eventDescription = data.eventDesc
-        self.url = data.url
-        self.place = data.place
-    }
-
     // MARK: Init fore network short data model
-    init(data: Event) {
-        self.id = data.id
+    init(data: EventShortDescription) {
+        self.id = data.eventId
         self.dates = {
             let dataStart = data.dates.last?.startDate ?? ""
             let dataEnd = data.dates.last?.endDate ?? ""
@@ -96,5 +84,17 @@ class EventModel {
             }
             return imageArray
         }()
+    }
+    
+    // MARK: Init for core data entity
+    init(data: EventEntity) {
+        self.id = data.id
+        self.dates = data.dates
+        self.title = data.title
+        self.images = data.images
+        self.price = data.price
+        self.eventDescription = data.eventDesc
+        self.url = data.url
+        self.place = data.place
     }
 }

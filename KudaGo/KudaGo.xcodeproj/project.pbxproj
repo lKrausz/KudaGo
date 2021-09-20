@@ -196,15 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				316FD50D26F5CD2700863E53 /* Model */,
-				31058DC526EAA04F00181455 /* TabBarController.swift */,
-				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
-				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
-				316FD4F426F3035800863E53 /* EventPlaceholderView.swift */,
-				316FD50F26F7058900863E53 /* BookmarkButton.swift */,
-				316FD4EF26F1E4C900863E53 /* EventView */,
-				316FD4F626F308E500863E53 /* EventsView */,
-				316FD4F326F3033100863E53 /* BookmarkView */,
-				316FD4F026F2452500863E53 /* SettingsView */,
+				319309C826F8A16400A34BE2 /* TabBar */,
 			);
 			path = "Main screen";
 			sourceTree = "<group>";
@@ -282,6 +274,22 @@
 				316FD50226F4C56A00863E53 /* EventModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		319309C826F8A16400A34BE2 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				31058DC526EAA04F00181455 /* TabBarController.swift */,
+				31058DC926EAB82B00181455 /* EventTableViewCell.swift */,
+				316FD4ED26F1E4C600863E53 /* TextTableViewCell.swift */,
+				316FD4F426F3035800863E53 /* EventPlaceholderView.swift */,
+				316FD50F26F7058900863E53 /* BookmarkButton.swift */,
+				316FD4EF26F1E4C900863E53 /* EventView */,
+				316FD4F626F308E500863E53 /* EventsView */,
+				316FD4F326F3033100863E53 /* BookmarkView */,
+				316FD4F026F2452500863E53 /* SettingsView */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		31CA03E326B0718100DB032D /* Network */ = {
@@ -368,12 +376,12 @@
 			isa = PBXGroup;
 			children = (
 				31DBF0CB2680DA3F006BC9E0 /* AppDelegate.swift */,
-				31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */,
-				316FD50B26F510EA00863E53 /* Services */,
-				31058DC826EAB30C00181455 /* Main screen */,
 				31DBF0D92680DA40006BC9E0 /* LaunchScreen.storyboard */,
 				31DBF0D72680DA40006BC9E0 /* Assets.xcassets */,
 				31DBF0DC2680DA40006BC9E0 /* Info.plist */,
+				31DBF0CD2680DA3F006BC9E0 /* SceneDelegate.swift */,
+				316FD50B26F510EA00863E53 /* Services */,
+				31058DC826EAB30C00181455 /* Main screen */,
 			);
 			path = KudaGo;
 			sourceTree = "<group>";

@@ -32,6 +32,7 @@ class EventPlaceholderView: UIView {
                                       height: UIScreen.main.bounds.height))
         label.text = text
         addSubview(imageView)
+        backgroundColor = .white
         addSubview(label)
 
         setConstraints()
