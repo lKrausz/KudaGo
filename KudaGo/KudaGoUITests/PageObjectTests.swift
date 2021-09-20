@@ -7,6 +7,32 @@
 
 import XCTest
 
+class PageObjectTests: XCTestCase {
+    var app: XCUIApplication!
+
+    override func setUp() {
+         super.setUp()
+         continueAfterFailure = false
+         app = XCUIApplication()
+         app.launch()
+     }
+
+    override func tearDown() {
+        super.tearDown()
+        app = nil
+    }
+
+    func testLocationSettingCellsExists() throws {
+
+        let tabBarPage = TabBarPage(app: app)
+        let settingPage = tabBarPage
+            .tapSettingsTab()
+            .tapSitySettingCell()
+
+        XCTAssertTrue(settingPage.sityCell.exists)
+    }
+}
+
 protocol Page {
     var app: XCUIApplication { get }
     init(app: XCUIApplication)
@@ -47,32 +73,5 @@ class SettingPage: Page {
 
     required init(app: XCUIApplication) {
         self.app = app
-    }
-
-}
-
-class PageObjectTests: XCTestCase {
-    var app: XCUIApplication!
-
-    override func setUp() {
-         super.setUp()
-         continueAfterFailure = false
-         app = XCUIApplication()
-         app.launch()
-     }
-
-    override func tearDown() {
-        super.tearDown()
-        app = nil
-    }
-    
-    func testLocationSettingCellsExists() throws {
-
-        let tabBarPage = TabBarPage(app: app)
-        let settingPage = tabBarPage
-            .tapSettingsTab()
-            .tapSitySettingCell()
-
-        XCTAssertTrue(settingPage.sityCell.exists)
     }
 }

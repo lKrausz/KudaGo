@@ -46,7 +46,6 @@
 		3132503A26F76BA70050AD93 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1726824539006A9A13 /* SettingViewController.swift */; };
 		3132503B26F76BA90050AD93 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1B2682502E006A9A13 /* SettingTableViewCell.swift */; };
 		3132503C26F76BEE0050AD93 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50226F4C56A00863E53 /* EventModel.swift */; };
-		3132503E26F77B280050AD93 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132503D26F77B280050AD93 /* NetworkTests.swift */; };
 		3132504026F789AE0050AD93 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132503F26F789AE0050AD93 /* SnapshotTests.swift */; };
 		313415DF26F06F6800027D48 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */; };
 		313415E126F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */; };
@@ -62,6 +61,22 @@
 		319309CA26F8F07800A34BE2 /* NSCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319309C926F8F07800A34BE2 /* NSCacheManager.swift */; };
 		319309CD26F905B300A34BE2 /* PageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319309CC26F905B300A34BE2 /* PageObjectTests.swift */; };
 		319309CE26F90A5200A34BE2 /* NSCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319309C926F8F07800A34BE2 /* NSCacheManager.swift */; };
+		319309CF26F913B700A34BE2 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50226F4C56A00863E53 /* EventModel.swift */; };
+		319309D126F913BF00A34BE2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03EC26B0731000DB032D /* NetworkManager.swift */; };
+		319309D326F9141400A34BE2 /* KudaGoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03EA26B0725200DB032D /* KudaGoModel.swift */; };
+		319309D426F9141B00A34BE2 /* KudaGoEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03EE26B0735F00DB032D /* KudaGoEndPoint.swift */; };
+		319309D526F9141D00A34BE2 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F026B073B200DB032D /* ParameterEncoding.swift */; };
+		319309D626F9141F00A34BE2 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F226B0740000DB032D /* JSONParameterEncoder.swift */; };
+		319309D726F9142100A34BE2 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F426B0741800DB032D /* NetworkRouter.swift */; };
+		319309D826F9142300A34BE2 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03FE26B074B800DB032D /* URLParameterEncoder.swift */; };
+		319309D926F9142500A34BE2 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F626B0744500DB032D /* EndPointType.swift */; };
+		319309DA26F9142700A34BE2 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03F826B0747000DB032D /* HTTPTask.swift */; };
+		319309DB26F9142900A34BE2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03FA26B0748500DB032D /* HTTPMethod.swift */; };
+		319309DC26F9142B00A34BE2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03FC26B074A300DB032D /* Router.swift */; };
+		319309DD26F9144000A34BE2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5554C268243E10052980F /* DataManager.swift */; };
+		319309DE26F9145A00A34BE2 /* EventDescription+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50626F4CCF200863E53 /* EventDescription+CoreDataClass.swift */; };
+		319309DF26F9145D00A34BE2 /* EventDescription+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD50726F4CCF200863E53 /* EventDescription+CoreDataProperties.swift */; };
+		319309E026F9146000A34BE2 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FD4F726F3A91000863E53 /* DataBaseManager.swift */; };
 		31A4CB1826824539006A9A13 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1726824539006A9A13 /* SettingViewController.swift */; };
 		31A4CB1C2682502E006A9A13 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4CB1B2682502E006A9A13 /* SettingTableViewCell.swift */; };
 		31B5554D268243E10052980F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5554C268243E10052980F /* DataManager.swift */; };
@@ -112,7 +127,6 @@
 		31058DC126EA69B100181455 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		31058DC526EAA04F00181455 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		31058DC926EAB82B00181455 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		3132503D26F77B280050AD93 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		3132503F26F789AE0050AD93 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
 		313415DE26F06F6800027D48 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		313415E026F0A21700027D48 /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -405,7 +419,6 @@
 			children = (
 				31DBF0E52680DA40006BC9E0 /* KudaGoTests.swift */,
 				3132503F26F789AE0050AD93 /* SnapshotTests.swift */,
-				3132503D26F77B280050AD93 /* NetworkTests.swift */,
 				31DBF0E72680DA40006BC9E0 /* Info.plist */,
 			);
 			path = KudaGoTests;
@@ -695,7 +708,6 @@
 				3132503026F76B580050AD93 /* NetworkManager.swift in Sources */,
 				3132503B26F76BA90050AD93 /* SettingTableViewCell.swift in Sources */,
 				3132503926F76B6F0050AD93 /* Router.swift in Sources */,
-				3132503E26F77B280050AD93 /* NetworkTests.swift in Sources */,
 				3132502E26F76B520050AD93 /* DataBaseManager.swift in Sources */,
 				3132502326F769DA0050AD93 /* BookmarkButton.swift in Sources */,
 				3132502626F769E10050AD93 /* EventTableViewCell.swift in Sources */,
@@ -731,8 +743,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319309DA26F9142700A34BE2 /* HTTPTask.swift in Sources */,
+				319309DD26F9144000A34BE2 /* DataManager.swift in Sources */,
+				319309D626F9141F00A34BE2 /* JSONParameterEncoder.swift in Sources */,
+				319309D526F9141D00A34BE2 /* ParameterEncoding.swift in Sources */,
 				31DBF0F12680DA40006BC9E0 /* KudaGoUITests.swift in Sources */,
+				319309D326F9141400A34BE2 /* KudaGoModel.swift in Sources */,
+				319309D126F913BF00A34BE2 /* NetworkManager.swift in Sources */,
+				319309D926F9142500A34BE2 /* EndPointType.swift in Sources */,
+				319309CF26F913B700A34BE2 /* EventModel.swift in Sources */,
+				319309DF26F9145D00A34BE2 /* EventDescription+CoreDataProperties.swift in Sources */,
+				319309E026F9146000A34BE2 /* DataBaseManager.swift in Sources */,
+				319309DE26F9145A00A34BE2 /* EventDescription+CoreDataClass.swift in Sources */,
 				319309CD26F905B300A34BE2 /* PageObjectTests.swift in Sources */,
+				319309D426F9141B00A34BE2 /* KudaGoEndPoint.swift in Sources */,
+				319309DC26F9142B00A34BE2 /* Router.swift in Sources */,
+				319309DB26F9142900A34BE2 /* HTTPMethod.swift in Sources */,
+				319309D826F9142300A34BE2 /* URLParameterEncoder.swift in Sources */,
+				319309D726F9142100A34BE2 /* NetworkRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
