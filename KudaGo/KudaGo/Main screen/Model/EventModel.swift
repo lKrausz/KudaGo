@@ -17,8 +17,6 @@ class EventModel {
     let eventDescription: String?
     let url: String?
     let place: String?
-    
-    
 
     // MARK: Init for network full data model
     init(data: EventFullDesc) {
@@ -51,7 +49,7 @@ class EventModel {
                 imageArray.append(image.image)
             }
             return imageArray
-            }()
+        }()
     }
 
     // MARK: Init for core data entity

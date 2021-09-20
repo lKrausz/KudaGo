@@ -46,7 +46,7 @@ class DataBaseManager {
             request.sortDescriptors = []
 
             fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
-                                                                  managedObjectContext: DataBaseManager.shared.context(),
+                                                                managedObjectContext: DataBaseManager.shared.context(),
                                                                   sectionNameKeyPath: nil,
                                                                   cacheName: "CACHENAME")
         }

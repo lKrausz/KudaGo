@@ -21,9 +21,7 @@ class TabBarController: UITabBarController {
         let settings = generateNavController(viewController: SettingsViewController(),
                                              title: "Настройки",
                                              image: UIImage(named: "settings"))
-
         viewControllers = [events, bookmarks, settings]
-
     }
 
     fileprivate func generateNavController(viewController: UIViewController,

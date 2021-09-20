@@ -9,7 +9,7 @@ import UIKit
 
 class GalleryTableViewCell: UITableViewCell {
 
-    var images = [String].init()
+    var images = [String]()
 
     lazy var galeryCollectionView: UICollectionView = {
         let layout = CenterCellCollectionViewFlowLayout()
@@ -54,7 +54,7 @@ extension GalleryTableViewCell: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
-
+    // swiftlint:disable line_length
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell
@@ -62,7 +62,7 @@ extension GalleryTableViewCell: UICollectionViewDelegate,
         cell.cellConfig(image: images[indexPath.row])
         return cell
     }
-
+// swiftlint:enable line_length
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

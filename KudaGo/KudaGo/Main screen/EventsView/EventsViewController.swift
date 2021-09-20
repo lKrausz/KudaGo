@@ -31,6 +31,15 @@ class EventsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating()
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
 
         view.addSubview(tableView)
 
@@ -60,6 +69,8 @@ class EventsViewController: UIViewController {
                                                         self.isGetAllRequestData = true
                                                     }
                                                     DispatchQueue.main.async {
+                                                        self.dismiss(animated: false, completion: nil)
+
                                                         self.tableView.reloadData()
                                                     }
                                                 }
@@ -79,13 +90,14 @@ extension EventsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-
+// swiftlint:disable line_length
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found") }
         let event = EventModel(data: self.data[indexPath.row])
         cell.cellConfig(data: event, indexPath: indexPath)
         return cell
     }
+// swiftlint:enable line_length
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NetworkManager.shared.getEvent(eventId: Int(data[indexPath.row].id), completion: { [weak self] data, error in

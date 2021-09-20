@@ -85,13 +85,13 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableContent.count
     }
-
+// swiftlint:disable line_length
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let type: CellContentType = CellContentType(rawValue: indexPath.row)!
 
         switch type {
         case .title:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found")}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found") }
             cell.cellConfig(label: data.title)
             return cell
 
@@ -101,35 +101,36 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
 
         case .eventDescription:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found")}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found") }
             cell.delegate = self
             cell.cellConfig(label: data.eventDescription!)
 
             return cell
         case .dates:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found")}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found") }
 
             cell.cellConfig(label: data.dates)
             return cell
 
         case .price:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found")}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found") }
             cell.cellConfig(label: data.price)
             return cell
 
         case .place:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found")}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found") }
             cell.cellConfig(label: data.place!)
             return cell
 
         case .url:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found")}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { preconditionFailure("Cell type not found") }
             cell.delegate = self
             cell.cellConfig(label: data.url!)
             return cell
         }
     }
 }
+// swiftlint:enable line_length
 
 extension EventViewController: TextTableViewCellDelegate {
 

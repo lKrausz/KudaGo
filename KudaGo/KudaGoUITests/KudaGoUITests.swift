@@ -6,28 +6,38 @@
 //
 
 import XCTest
+@testable import KudaGo
 
 class KudaGoUITests: XCTestCase {
+    var app: XCUIApplication!
 
-    override func setUpWithError() throws {
-        continueAfterFailure = false
+    override func setUp() {
+         super.setUp()
+         continueAfterFailure = false
+
+         app = XCUIApplication()
+         app.launch()
+     }
+
+    override func tearDown() {
+        super.tearDown()
+        app = nil
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIsSettingsForSityExists() throws {
+        sleep(5) // for network request
+        app.tabBars["Tab Bar"].buttons["Настройки"].tap()
+        let tablesQuery = app.tables
+        tablesQuery.cells.staticTexts["Город"].tap()
+        tablesQuery.staticTexts["Санкт-Петербург"].tap()
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testIsImagesInEventVCExists() throws {
+        sleep(5) // for network request
+        app.tabBars["Tab Bar"].buttons["События"].tap()
+        let tablesQuery = app.tables
+        tablesQuery.cells.firstMatch.tap()
+        let res = tablesQuery.cells.collectionViews.images.firstMatch.exists
+        XCTAssertEqual(res, true)
     }
 }

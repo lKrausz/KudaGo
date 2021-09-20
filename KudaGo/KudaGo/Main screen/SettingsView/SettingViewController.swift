@@ -182,13 +182,13 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-
+// swiftlint:disable line_length
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else { preconditionFailure("Cell type not found") }
         cell.cellConfig(labelContent: self.data[indexPath.row].name, isOnboarding: isOnboarding)
         return cell
     }
-
+// swiftlint:enable line_length
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if currentType == .location {
             DataManager.shared.setLocation(location: data[indexPath.row].slug)

@@ -49,7 +49,7 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
         let sectionInfo = DataBaseManager.shared.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
-
+// swiftlint:disable line_length
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { preconditionFailure("Cell type not found") }
         let event = EventModel(data: DataBaseManager.shared.fetchedResultsController.object(at: indexPath))
@@ -58,6 +58,7 @@ extension BookmarkViewController: UITableViewDataSource, UITableViewDelegate {
 
         return cell
     }
+// swiftlint:enable line_length
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let event = EventModel(data: DataBaseManager.shared.fetchedResultsController.object(at: indexPath))
